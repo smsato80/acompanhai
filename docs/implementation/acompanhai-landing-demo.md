@@ -2,7 +2,9 @@
 
 ## Estado
 
-A landing de demonstração está implementada localmente. Não está homologada nem publicada em produção.
+A landing de demonstração está pública em produção em https://acompanhai.vercel.app.
+
+O código-fonte está disponível em https://github.com/smsato80/acompanhai.
 
 ## Seções da página
 
@@ -15,7 +17,7 @@ A landing de demonstração está implementada localmente. Não está homologada
 
 ## CTA e formulário
 
-O texto do CTA é exatamente `Quero testar`. Ele direciona à seção do formulário de interesse. Ao enviar o formulário, a interface exibe uma confirmação local, sem persistência de dados e sem chamadas de rede.
+O texto do CTA é exatamente `Quero testar`. Ele direciona à seção do formulário de interesse. Ao enviar o formulário, a interface exibe uma confirmação local, sem persistência de dados e sem chamadas de rede. O formulário continua local e não persistente.
 
 ## Fora de escopo desta demonstração
 
@@ -28,4 +30,8 @@ O texto do CTA é exatamente `Quero testar`. Ele direciona à seção do formul�
 
 ## Publicação
 
-As URLs de GitHub e Vercel permanecem pendentes até a conclusão das próximas tasks. Esta documentação não representa homologação ou disponibilidade em produção.
+A landing está pública em produção em https://acompanhai.vercel.app.
+
+O repositório GitHub é https://github.com/smsato80/acompanhai.
+
+O formulário permanece local e não persistente: os dados não são armazenados e não há chamadas de rede no envio.
