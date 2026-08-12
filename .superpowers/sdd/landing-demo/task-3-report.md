@@ -31,6 +31,22 @@ The earlier E2E result was caused by a stale `next start` process on port 3000, 
 | `pnpm test` | Passed | Vitest: 1 test file passed; 1 test passed. |
 | `pnpm typecheck` | Passed | Route types generated successfully; `tsc --noEmit` passed. |
 
+## Fix round
+
+- Relaxed the home smoke assertion from exactly two CTA controls to at least two controls.
+- Preserved the hero CTA assertion requiring `href="#quero-testar"`.
+- No product code or files outside `D:\SatoTech\acompanhai` were changed.
+
+## Fix round verification (2026-08-13)
+
+| Command | Result | Output summary |
+| --- | --- | --- |
+| `pnpm test:e2e` | Passed | Playwright Chromium: 2 tests passed in 17.8s. |
+| `pnpm test` | Passed | Vitest: 1 test file passed; 1 test passed. |
+| `pnpm typecheck` | Passed | Route types generated successfully; `tsc --noEmit` passed. |
+
+The E2E run emitted only the existing non-blocking Next.js `allowedDevOrigins` development warning.
+
 ## Current concerns
 
 - Next.js emitted a non-blocking development warning that a future major version will require `allowedDevOrigins` for the `127.0.0.1` cross-origin request. It did not affect the acceptance run.
