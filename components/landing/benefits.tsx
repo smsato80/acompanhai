@@ -23,10 +23,15 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <section className="border-t border-white/10 py-20 lg:py-24" aria-labelledby="beneficios-title">
+    <section className="border-t border-white/10 py-20 lg:py-28" aria-labelledby="beneficios-title">
       <div className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-mint">Feito para acompanhar</p>
-        <h2 id="beneficios-title" className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-mint">
+          Feito para acompanhar
+        </p>
+        <h2
+          id="beneficios-title"
+          className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl"
+        >
           Mais clareza para o seu trabalho e para o caminho de cada cliente.
         </h2>
       </div>
@@ -34,9 +39,13 @@ export function Benefits() {
         {benefits.map((benefit) => (
           <article
             key={benefit.number}
-            className="rounded-3xl border border-white/10 bg-white/[0.035] p-7 transition hover:-translate-y-1 hover:border-mint/30 hover:bg-white/[0.06]"
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-7 shadow-panel transition duration-300 hover:-translate-y-1 hover:border-mint/35 hover:bg-white/[0.06]"
           >
-            <span className="text-sm font-bold text-mint">{benefit.number}</span>
+            <span
+              className="absolute right-0 top-0 h-24 w-24 rounded-bl-[4rem] bg-mint/[0.035] transition group-hover:bg-mint/[0.08]"
+              aria-hidden="true"
+            />
+            <span className="relative text-sm font-bold text-mint">{benefit.number}</span>
             <h3 className="mt-10 text-xl font-semibold">{benefit.title}</h3>
             <p className="mt-3 max-w-sm text-sm leading-6 text-slate-400">{benefit.description}</p>
           </article>
