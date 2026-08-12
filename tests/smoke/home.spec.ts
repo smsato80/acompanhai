@@ -8,7 +8,9 @@ test('a home apresenta a proposta principal', async ({ page }) => {
     page.getByRole('heading', { name: /Seu cliente não precisa se perder/ }),
   ).toBeVisible();
 
-  const testCtas = page.getByRole('link', { name: /Quero testar/ });
-  expect(await testCtas.count()).toBeGreaterThanOrEqual(2);
-  await expect(testCtas.first()).toHaveAttribute('href', '#quero-testar');
+  const heroCta = page.getByRole('link', { name: /Quero testar/ });
+  const finalCta = page.getByRole('button', { name: /Quero testar/ });
+
+  expect(await heroCta.or(finalCta).count()).toBe(2);
+  await expect(heroCta).toHaveAttribute('href', '#quero-testar');
 });
