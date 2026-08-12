@@ -6,21 +6,21 @@
 
 A landing de demonstração está pública em produção: https://acompanhai.vercel.app.
 
-## Registro da publicação GitHub
+## Registro da publicação de código
 
 - Repositório: https://github.com/smsato80/acompanhai
-- Publicado em: 2026-08-13T03:55:32+09:00
-- Estado: código publicado; deploy de produção no Vercel confirmado.
+- Commit local publicado: `d71cdaf2e317c1a7484caf6cef59a21b5b9c50c2`.
+- Branch: `master`.
+- Caminho de publicação: CLI autenticado a partir de `D:\SatoTech\acompanhai`; não foi usada integração automática do GitHub.
 
-## Registro do deploy Vercel
+## Registro do redeploy Vercel após a correção do preset
 
 - Projeto: `acompanhai` (`prj_TLXI5apuCZ4OHMuGm7334VIq5w1z`).
-- Deployment: `dpl_5L2qBYw2WTKYM52XgMSXKvD65faE`.
-- Status: Ready.
-- Produção: https://acompanhai.vercel.app
-- Alias do deployment: https://acompanhai-anm8srg7w-smsato80s-projects.vercel.app
-- Criado em: 2026-08-13T04:24:37+09:00 (JST).
-- Build: Next.js aprovado.
+- Framework preset: `nextjs`, confirmado via API.
+- Deployment: `dpl_BUxWM55dyV5gbdK9j4onecVVUNZC`.
+- Status: `READY`.
+- URL do deployment: https://acompanhai-q5v8atpm4-smsato80s-projects.vercel.app
+- Alias de produção: https://acompanhai.vercel.app
 - A proteção SSO foi desativada para tornar a demonstração pública.
 
 ### Verificação pública
@@ -29,6 +29,7 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - Título: `AcompanhAí — acompanhamento que continua`.
 - Headline: `Seu cliente não precisa se perder no caminho.`
 - CTA: `Quero testar` visível.
+- Checks locais aprovados: `format:check`, `lint`, `typecheck`, `test`, `test:e2e` (2) e `build`.
 
 ## Pré-requisitos
 
