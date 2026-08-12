@@ -4,7 +4,7 @@ Atualizado em 2026-08-13 após consulta ao padrão documental do Peso Leve e rev
 
 ## Resumo executivo
 
-O AcompanhAí possui definição de produto, MVP, arquitetura recomendada, fluxos, riscos, métricas e roadmap. A landing de demonstração está implementada localmente; ela ainda não foi homologada nem publicada em produção. Os demais fluxos do produto continuam sem implementação funcional.
+O AcompanhAí possui definição de produto, MVP, arquitetura recomendada, fluxos, riscos, métricas e roadmap. A landing de demonstração está publicada em produção em [acompanhai.vercel.app](https://acompanhai.vercel.app), com deployment Vercel em estado `Ready` e framework `nextjs`. Os demais fluxos do produto, incluindo Auth e o schema do Supabase, continuam sem implementação funcional.
 
 O material visual produzido nesta fase é estratégico. As páginas Dark Moderno, Premium Sofisticado e Brasil/Japão não são o produto SaaS.
 
@@ -14,16 +14,17 @@ O material visual produzido nesta fase é estratégico. As páginas Dark Moderno
 - Documentação modular em `docs/acompanhai/`.
 - Documentação espelhada no padrão do Peso Leve em `docs/implementation/`.
 - Três páginas HTML estratégicas em `outputs/`.
-- Landing de demonstração local em Next.js, com formulário de interesse sem persistência.
+- Repositório oficial em `D:\SatoTech\acompanhai`, publicado no [GitHub](https://github.com/smsato80/acompanhai), com `origin/master` em `14745cc`.
+- Landing de demonstração em Next.js publicada em [acompanhai.vercel.app](https://acompanhai.vercel.app), com Vercel configurado como `nextjs` e deployment `Ready`.
+- Formulário de interesse da landing com confirmação local, sem persistência ou chamadas ao Supabase.
 - Hipótese de mercado: profissionais brasileiros no Japão.
 - Hipótese de preço: teste gratuito, ¥980/mês Inicial e ¥1.980/mês Profissional.
 
 ## O que ainda não existe
 
-- Repositório oficial do AcompanhAí.
 - Frontend funcional além da landing de demonstração.
-- Banco Supabase aplicado e homologado.
-- Login real e RLS testada.
+- Schema do Supabase aplicado e homologado.
+- Login real, Auth e RLS testados.
 - Convite seguro em produção.
 - Stripe, webhook e cobrança real.
 - Piloto com personal trainers.
@@ -32,14 +33,14 @@ O material visual produzido nesta fase é estratégico. As páginas Dark Moderno
 
 ## Classificação de implementação
 
-| Área                   | Estado                   | Observação                                           |
-| ---------------------- | ------------------------ | ---------------------------------------------------- |
-| Visão e posicionamento | Documentado              | Ainda depende de entrevistas                         |
-| MVP                    | Especificado             | Nenhum fluxo implementado                            |
-| Interface              | Implementado localmente  | Landing de demonstração, sem homologação ou produção |
-| Banco e Auth           | Planejado                | Supabase recomendado                                 |
-| Convites               | Planejado                | Token de uso único e sessão segura                   |
-| Painel                 | Referência demonstrativa | Mockup da landing com dados fictícios                |
-| Billing                | Planejado                | Stripe em JPY, inicialmente test mode                |
-| IA                     | Fora do MVP              | Só após validar o fluxo central                      |
-| Deploy                 | Não iniciado             | URLs de GitHub e Vercel pendentes das próximas tasks |
+| Área                   | Estado                   | Observação                                                |
+| ---------------------- | ------------------------ | --------------------------------------------------------- |
+| Visão e posicionamento | Documentado              | Ainda depende de entrevistas                              |
+| MVP                    | Especificado             | Nenhum fluxo implementado                                 |
+| Interface              | Produção                 | Landing de demonstração publicada; formulário local       |
+| Banco e Auth           | Planejado                | Schema Supabase, Auth e RLS não implementados             |
+| Convites               | Planejado                | Token de uso único e sessão segura                        |
+| Painel                 | Referência demonstrativa | Mockup da landing com dados fictícios                     |
+| Billing                | Planejado                | Stripe em JPY, inicialmente test mode                     |
+| IA                     | Fora do MVP              | Só após validar o fluxo central                           |
+| Deploy                 | Produção                 | GitHub publicado e Vercel `nextjs` com deployment `Ready` |
