@@ -4,7 +4,13 @@
 
 ## Estado da landing de demonstração
 
-A landing está implementada somente localmente. As URLs de GitHub e Vercel permanecem pendentes até a conclusão das próximas tasks; não registrar uma URL como pública ou de produção antes da confirmação do deploy.
+A landing está implementada somente localmente. O repositório oficial está público no GitHub, mas a URL da landing no Vercel permanece pendente; não registrar uma URL de produção antes da confirmação do deploy.
+
+## Registro da publicação GitHub
+
+- Repositório: https://github.com/smsato80/acompanhai
+- Publicado em: 2026-08-13T03:55:32+09:00
+- Estado: código publicado; deploy no Vercel continua pendente para uma task posterior.
 
 ## Pré-requisitos
 
