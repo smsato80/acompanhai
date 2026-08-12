@@ -1,16 +1,34 @@
 # Runbook de deploy
 
-> Ainda não há produção. Este documento define o procedimento futuro.
+> Produção da landing de demonstração publicada e verificada.
 
 ## Estado da landing de demonstração
 
-A landing está implementada somente localmente. O repositório oficial está público no GitHub, mas a URL da landing no Vercel permanece pendente; não registrar uma URL de produção antes da confirmação do deploy.
+A landing de demonstração está pública em produção: https://acompanhai.vercel.app.
 
 ## Registro da publicação GitHub
 
 - Repositório: https://github.com/smsato80/acompanhai
 - Publicado em: 2026-08-13T03:55:32+09:00
-- Estado: código publicado; deploy no Vercel continua pendente para uma task posterior.
+- Estado: código publicado; deploy de produção no Vercel confirmado.
+
+## Registro do deploy Vercel
+
+- Projeto: `acompanhai` (`prj_TLXI5apuCZ4OHMuGm7334VIq5w1z`).
+- Deployment: `dpl_5L2qBYw2WTKYM52XgMSXKvD65faE`.
+- Status: Ready.
+- Produção: https://acompanhai.vercel.app
+- Alias do deployment: https://acompanhai-anm8srg7w-smsato80s-projects.vercel.app
+- Criado em: 2026-08-13T04:24:37+09:00 (JST).
+- Build: Next.js aprovado.
+- A proteção SSO foi desativada para tornar a demonstração pública.
+
+### Verificação pública
+
+- HTTP: `200 OK` em `https://acompanhai.vercel.app`.
+- Título: `AcompanhAí — acompanhamento que continua`.
+- Headline: `Seu cliente não precisa se perder no caminho.`
+- CTA: `Quero testar` visível.
 
 ## Pré-requisitos
 
