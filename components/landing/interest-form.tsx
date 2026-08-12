@@ -91,7 +91,7 @@ export function InterestForm() {
             </div>
             <button
               type="submit"
-              className="mt-1 inline-flex w-fit items-center justify-center rounded-full bg-mint px-6 py-3.5 text-sm font-bold text-ink shadow-glow transition duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-none"
+              className="mt-1 inline-flex w-fit items-center justify-center rounded-full bg-mint px-6 py-3.5 text-sm font-bold text-ink shadow-glow transition duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-2 focus-visible:outline-mint focus-visible:outline-offset-4"
             >
               Quero testar
             </button>
