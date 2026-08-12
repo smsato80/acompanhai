@@ -1,5 +1,12 @@
 # Histórico de mudanças
 
+## 2026-08-13 — Landing de demonstração implementada localmente
+
+- Implementadas as seções hero, mockup de painel, benefícios, fluxo, formulário de interesse e rodapé.
+- Registrado que o formulário confirma localmente, sem persistir dados ou realizar chamadas de rede.
+- Adicionada cobertura Playwright para a apresentação da home e para a confirmação local do formulário sem requisição de lead.
+- A publicação em GitHub e Vercel continua pendente das próximas tasks; não há URL pública registrada.
+
 ## 2026-08-13 — Documentação inicial
 
 - Consultado o padrão documental do projeto Peso Leve.

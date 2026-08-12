@@ -2,6 +2,10 @@
 
 > Ainda não há produção. Este documento define o procedimento futuro.
 
+## Estado da landing de demonstração
+
+A landing está implementada somente localmente. As URLs de GitHub e Vercel permanecem pendentes até a conclusão das próximas tasks; não registrar uma URL como pública ou de produção antes da confirmação do deploy.
+
 ## Pré-requisitos
 
 1. Repositório Git oficial criado.
@@ -12,6 +16,16 @@
 6. Domínio e e-mail autenticados.
 7. Termos, privacidade, contato e cancelamento revisados.
 8. Backup e restauração ensaiados.
+
+## Publicar a landing demo via GitHub e Vercel
+
+1. Confirmar que a árvore de trabalho não contém `.env.local`, chaves privadas, tokens ou dados reais de leads.
+2. Criar ou selecionar o repositório GitHub oficial e enviar apenas os arquivos versionáveis por meio de uma sessão autenticada segura.
+3. Nunca adicionar, versionar ou enviar `.env.local`, chaves privadas ou tokens para o GitHub.
+4. No Vercel, importar o repositório GitHub e conferir as configurações de build do projeto Next.js.
+5. Caso variáveis sejam necessárias em tasks futuras, cadastrá-las exclusivamente nas configurações seguras do Vercel; não copiá-las para commits, documentação ou logs.
+6. Publicar um preview, validar a landing e registrar a URL somente após a confirmação do Vercel.
+7. Publicar em produção apenas com autorização e após as tasks pendentes; registrar então a URL de produção, o commit e o resultado.
 
 ## Validação antes de publicar
 
