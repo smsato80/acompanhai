@@ -5,7 +5,7 @@
 
 ## Objetivo
 
-Criar a fundação técnica e documental do AcompanhAí em `C:\Users\DELL\Documents\ChatGPT\Acompanhai`, preparando a primeira entrega funcional sem misturar ainda regras de negócio, autenticação completa ou dados reais de clientes.
+Criar a fundação técnica e documental do AcompanhAí em `D:\SatoTech\acompanhai`, preparando a primeira entrega funcional sem misturar ainda regras de negócio, autenticação completa ou dados reais de clientes.
 
 ## Contexto
 

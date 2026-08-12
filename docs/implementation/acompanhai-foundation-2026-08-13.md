@@ -5,7 +5,7 @@
 
 ## Entregue
 
-- Repositório oficial em `C:\Users\DELL\Documents\ChatGPT\Acompanhai`.
+- Repositório oficial em `D:\SatoTech\acompanhai`.
 - Documentação modular importada no mesmo padrão usado no Peso Leve.
 - Aplicação web mínima com Next.js, TypeScript estrito e Tailwind.
 - Home inicial dark moderna em português brasileiro.
