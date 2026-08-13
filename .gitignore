@@ -18,3 +18,5 @@ test-results/
 .DS_Store
 Thumbs.db
 *.tsbuildinfo
+.vercel
+.env*

@@ -45,3 +45,7 @@ O material visual produzido nesta fase é estratégico. As páginas Dark Moderno
 | Billing                | Planejado                | Stripe em JPY, inicialmente test mode                     |
 | IA                     | Fora do MVP              | Só após validar o fluxo central                           |
 | Deploy                 | Produção                 | GitHub publicado e Vercel `nextjs` com deployment `Ready` |
+
+## Verificacao pos-publicacao
+
+O app MVP foi publicado em producao em [acompanhai.vercel.app](https://acompanhai.vercel.app). A checagem online retornou HTTP 200 para `/` e `/login`; `/dashboard` redireciona visitantes sem sessao para `/login`. Ainda falta homologar uma conta real e o fluxo de confirmacao de e-mail.

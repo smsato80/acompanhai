@@ -20,6 +20,8 @@ pnpm dev
 
 Abra `http://localhost:3000`.
 
+Em producao, acesse [acompanhai.vercel.app](https://acompanhai.vercel.app).
+
 ## Verificações
 
 ```bash

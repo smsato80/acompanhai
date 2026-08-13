@@ -44,3 +44,11 @@ O trigger de Auth cria automaticamente o perfil, a organização em trial e a me
 ## Próximo marco
 
 Homologar uma conta real, validar signup/login e executar testes negativos com duas organizações antes de publicar o branch em produção.
+
+## Publicacao concluida
+
+- Deploy de producao concluido na Vercel: [acompanhai.vercel.app](https://acompanhai.vercel.app).
+- O branch de implementacao continua disponivel no GitHub para revisao: [feature/mvp-app](https://github.com/smsato80/acompanhai/tree/feature/mvp-app).
+- A checagem online confirmou `/` e `/login` com HTTP 200 e `/dashboard` protegido com redirecionamento para login.
+
+O proximo marco agora e homologar uma conta real, validar cadastro/login com confirmacao de e-mail e executar testes negativos com duas organizacoes. Depois, preparar o primeiro piloto com profissionais brasileiros no Japao.
