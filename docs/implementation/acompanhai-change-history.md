@@ -1,5 +1,13 @@
 # Histórico de mudanças
 
+## 2026-08-13 — Landing premium refinada e publicada
+
+- Trocados os indicadores numéricos dos benefícios por ícones SVG inline, mantendo acessibilidade e sem dependências externas.
+- Atualizado o rodapé para `Desenvolvido por SatoTech · Soluções Inteligentes`.
+- Refeito o mockup com navegação lateral, métricas, carteira de clientes, alertas e gráfico de ritmo semanal usando dados fictícios.
+- Tornado explícito no hero e na seção de benefícios que o primeiro público é formado por personal trainers brasileiros que atendem no Japão.
+- Publicado o redeploy de produção na Vercel após `lint`, `typecheck`, build e quatro testes E2E aprovados.
+
 ## 2026-08-13 — Landing de demonstração implementada localmente
 
 - Implementadas as seções hero, mockup de painel, benefícios, fluxo, formulário de interesse e rodapé.

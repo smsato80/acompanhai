@@ -6,6 +6,8 @@ Atualizado em 2026-08-13 após a implementação do primeiro marco funcional do 
 
 O AcompanhAí possui definição de produto, MVP, arquitetura recomendada, fluxos, riscos, métricas e roadmap. A landing está publicada em produção em [acompanhai.vercel.app](https://acompanhai.vercel.app). O primeiro marco funcional agora inclui login/cadastro, sessão protegida, organizações, clientes, planos e check-ins persistidos no Supabase com RLS.
 
+A landing foi refinada para explicar de imediato quem compra a solução: personal trainers brasileiros que atendem no Japão. O mockup visual agora representa o painel de acompanhamento com dados fictícios; não é um relatório real de clientes.
+
 O material visual produzido nesta fase é estratégico. As páginas Dark Moderno, Premium Sofisticado e Brasil/Japão não são o produto SaaS.
 
 ## O que existe hoje
