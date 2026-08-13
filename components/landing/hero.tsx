@@ -28,14 +28,14 @@ export function Hero() {
               className="h-2 w-2 rounded-full bg-mint shadow-[0_0_14px_rgba(119,245,197,0.9)]"
               aria-hidden="true"
             />
-            acompanhamento com intenção
+            para personal trainers brasileiros no Japão
           </p>
           <h1 className="mt-7 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.05em] text-balance sm:text-7xl lg:text-[5.5rem]">
             Seu cliente não precisa se perder no caminho.
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300 sm:text-xl">
-            O AcompanhAí reúne o que importa para você manter cada cliente presente, orientado e em
-            movimento.
+            O AcompanhAí reúne clientes, planos e check-ins para personal trainers brasileiros que
+            atendem no Japão — com mais clareza entre uma sessão e outra.
           </p>
           <a
             href="/login"
@@ -48,8 +48,8 @@ export function Hero() {
           </a>
         </div>
         <p className="max-w-sm border-l border-lilac/50 pl-5 text-sm leading-6 text-slate-400 lg:mb-4">
-          Uma demonstração para profissionais que querem transformar constância em uma experiência
-          melhor de acompanhamento.
+          Feito para quem atende brasileiros no Japão e quer manter o vínculo, o plano e o próximo
+          passo visíveis para cada cliente.
         </p>
       </section>
     </header>
