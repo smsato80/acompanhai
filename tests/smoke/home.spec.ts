@@ -12,5 +12,5 @@ test('a home apresenta a proposta principal', async ({ page }) => {
   const finalCta = page.getByRole('button', { name: /Quero testar/ });
 
   expect(await heroCta.or(finalCta).count()).toBeGreaterThanOrEqual(2);
-  await expect(heroCta).toHaveAttribute('href', '#quero-testar');
+  await expect(heroCta).toHaveAttribute('href', '/login');
 });

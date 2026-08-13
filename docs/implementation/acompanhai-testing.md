@@ -1,6 +1,6 @@
 # Testes e validação
 
-> Nenhum teste de aplicação existe ainda; esta é a matriz planejada.
+> Estado atual: unit tests e smoke tests locais passam; os testes de RLS e o cadastro real ainda precisam de homologação com conta de teste.
 
 ## Comandos esperados
 
@@ -31,7 +31,7 @@ pnpm build
 
 ### Fundação
 
-Lint, tipos, testes e build verdes; migration limpa; isolamento comprovado.
+Lint, tipos, testes e build verdes; migration aplicada; RLS habilitada; advisors de segurança sem lints. O isolamento negativo com duas contas ainda é gate do piloto.
 
 ### Piloto
 

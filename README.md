@@ -4,6 +4,8 @@ Fundação do SaaS AcompanhAí: uma experiência simples para profissionais acom
 
 O primeiro recorte atende personal trainers que trabalham com clientes no Brasil e no Japão. A interface usa português brasileiro; referências comerciais futuras serão apresentadas em ienes (¥).
 
+O primeiro app funcional está disponível localmente em `/login` e `/dashboard`. Ele usa Supabase Auth e o schema multi-tenant do MVP para cadastrar clientes, planos e check-ins. A landing pública continua sendo uma demonstração comercial.
+
 ## Pré-requisitos
 
 - Node.js 22 ou superior
@@ -33,8 +35,8 @@ O teste de fumaça do Playwright inicia o servidor automaticamente. Em uma máqu
 
 ## Variáveis de ambiente
 
-Copie `.env.example` para `.env.local` quando a integração com Supabase começar. Não coloque chaves privadas no frontend e nunca versione `.env.local`.
+Copie `.env.example` para `.env.local` e preencha a chave publicável do projeto Supabase. Não coloque chaves privadas no frontend e nunca versione `.env.local`.
 
 ## Documentação
 
-A documentação do produto, arquitetura, dados, segurança, testes e processo está em [`docs/`](./docs/). O próximo marco funcional é autenticação, organizações, clientes e políticas RLS.
+A documentação do produto, arquitetura, dados, segurança, testes e processo está em [`docs/`](./docs/). O registro do primeiro marco funcional está em [`docs/implementation/acompanhai-mvp-app-2026-08-13.md`](./docs/implementation/acompanhai-mvp-app-2026-08-13.md).

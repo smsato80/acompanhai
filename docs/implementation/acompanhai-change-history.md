@@ -7,6 +7,15 @@
 - Adicionada cobertura Playwright para a apresentação da home e para a confirmação local do formulário sem requisição de lead.
 - A publicação em GitHub e Vercel continua pendente das próximas tasks; não há URL pública registrada.
 
+## 2026-08-13 — Primeiro marco funcional do MVP
+
+- Criado o branch isolado `feature/mvp-app` para não alterar o `master` diretamente.
+- Implementados login/cadastro por e-mail, confirmação de e-mail, proteção de sessão e painel do profissional.
+- Implementadas organizações, membros, clientes, planos e check-ins com isolamento por `organization_id`.
+- Aplicada a migration `mvp_core_schema` no projeto Supabase de Tóquio, com RLS em todas as tabelas do núcleo.
+- Criada migration de endurecimento de `search_path`; advisors de segurança retornaram sem lints.
+- Adicionados smoke tests para login e proteção do dashboard.
+
 ## 2026-08-13 — Documentação inicial
 
 - Consultado o padrão documental do projeto Peso Leve.

@@ -19,6 +19,7 @@ Este diretório registra a visão, o estado, a arquitetura, os requisitos, a val
 - [Eventos e analytics](implementation/acompanhai-analytics-events.md)
 - [Sistema visual](implementation/acompanhai-design-system.md)
 - [Validação comercial](implementation/acompanhai-commercial-validation.md)
+- [Primeiro marco funcional do app](implementation/acompanhai-mvp-app-2026-08-13.md)
 - [Plano mestre](acompanhai-plano-completo.md)
 
 ## Leitura rápida
@@ -27,8 +28,8 @@ O AcompanhAí será um SaaS web, em português e cobrado em ienes, para profissi
 
 ## Estado resumido
 
-- Produto: especificado, ainda não implementado.
-- Repositório oficial: ainda não criado pelo responsável.
+- Produto: especificado; primeiro marco funcional implementado no branch `feature/mvp-app`.
+- Repositório oficial: `D:\SatoTech\acompanhai`, publicado em https://github.com/smsato80/acompanhai.
 - Validação comercial: pendente de entrevistas com profissionais no Japão.
 - Cobrança real: não autorizada e não configurada.
-- Produção: inexistente.
+- Produção: landing publicada; app MVP aguarda homologação e publicação.

@@ -6,6 +6,7 @@ revoke all on schema private from public;
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
+set search_path = ''
 as $$
 begin
   new.updated_at = now();
@@ -17,6 +18,7 @@ create or replace function public.slugify(input text)
 returns text
 language sql
 immutable
+set search_path = ''
 as $$
   select nullif(
     trim(both '-' from regexp_replace(lower(coalesce(input, '')), '[^a-z0-9]+', '-', 'g')),

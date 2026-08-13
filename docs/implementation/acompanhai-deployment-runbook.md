@@ -1,6 +1,6 @@
 # Runbook de deploy
 
-> Produção da landing de demonstração publicada e verificada.
+> Produção da landing publicada e verificada; o app MVP está pronto localmente e aguarda homologação antes do deploy.
 
 ## Estado da landing de demonstração
 
@@ -22,6 +22,14 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - URL do deployment: https://acompanhai-q5v8atpm4-smsato80s-projects.vercel.app
 - Alias de produção: https://acompanhai.vercel.app
 - A proteção SSO foi desativada para tornar a demonstração pública.
+
+## Estado do app MVP
+
+- Branch de implementação: `feature/mvp-app`.
+- Rotas locais: `/login`, `/auth/confirm` e `/dashboard`.
+- Supabase: migration `mvp_core_schema` e endurecimento de `search_path` aplicados no projeto `xwbfzyoltsbpbvsnlmfg`.
+- Vercel: ainda não há publicação do branch MVP.
+- Variáveis necessárias no deploy: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` e `NEXT_PUBLIC_SITE_URL`.
 
 ### Verificação pública
 

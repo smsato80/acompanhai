@@ -38,7 +38,7 @@ export function Hero() {
             movimento.
           </p>
           <a
-            href="#quero-testar"
+            href="/login"
             className="mt-10 inline-flex items-center justify-center rounded-full bg-mint px-6 py-3.5 text-sm font-bold text-ink shadow-glow transition duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_48px_rgba(119,245,197,0.22)] focus-visible:outline-2 focus-visible:outline-mint focus-visible:outline-offset-4"
           >
             Quero testar
