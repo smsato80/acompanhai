@@ -1,5 +1,7 @@
 # Documentação do AcompanhAí
 
+> **Status atual: PAUSADO em 13/08/2026.** Esta documentação permanece como arquivo do produto e não autoriza novas implementações. A landing, o repositório e o projeto Supabase foram preservados; o Supabase está pausado e não foi excluído.
+
 Este diretório registra a visão, o estado, a arquitetura, os requisitos, a validação e os procedimentos operacionais do AcompanhAí. O produto ainda está em fase de especificação e validação comercial; nenhum recurso deve ser considerado pronto para produção sem evidência registrada.
 
 ## Índice
@@ -27,7 +29,7 @@ O AcompanhAí será um SaaS web, em português e cobrado em ienes, para profissi
 
 ## Estado resumido
 
-- Produto: especificado, ainda não implementado.
+- Produto: especificado, ainda não implementado; desenvolvimento pausado.
 - Repositório oficial: ainda não criado pelo responsável.
 - Validação comercial: pendente de entrevistas com profissionais no Japão.
 - Cobrança real: não autorizada e não configurada.

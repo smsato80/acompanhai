@@ -2,6 +2,10 @@
 
 Atualizado em 2026-08-13 após consulta ao padrão documental do Peso Leve e revisão do plano de produto.
 
+> **Decisão operacional:** desenvolvimento pausado em 13/08/2026. A landing, o repositório, o Supabase e a documentação foram preservados para retomada futura; não há autorização implícita para continuar construindo ou cobrar.
+
+O AcompanhAí é independente do Peso Leve e do CarrosserIA. O CarrosserIA pode apoiar a divulgação do Peso Leve, mas não existe dependência técnica entre os produtos.
+
 ## Resumo executivo
 
 O AcompanhAí possui definição de produto, MVP, arquitetura recomendada, fluxos, riscos, métricas e roadmap. A landing de demonstração está publicada em produção em [acompanhai.vercel.app](https://acompanhai.vercel.app), com deployment Vercel em estado `Ready` e framework `nextjs`. Os demais fluxos do produto, incluindo Auth e o schema do Supabase, continuam sem implementação funcional.

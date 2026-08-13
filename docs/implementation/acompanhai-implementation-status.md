@@ -11,6 +11,8 @@
 
 ## Status atual
 
+**Decisão:** PAUSADO em 13/08/2026. A landing permanece publicada como demonstração, mas o desenvolvimento do SaaS, o schema Supabase e qualquer cobrança estão congelados até nova decisão baseada em validação comercial.
+
 | Área            | Estado               | Próximo passo                                             |
 | --------------- | -------------------- | --------------------------------------------------------- |
 | Produto         | Especificado         | Entrevistas                                               |

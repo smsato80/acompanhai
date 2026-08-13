@@ -1,8 +1,10 @@
 # AcompanhAí
 
+> **Status atual: PAUSADO em 13/08/2026.** A landing, o código e a documentação estão preservados. Nenhum desenvolvimento, configuração de banco ou cobrança deve continuar até nova decisão.
+
 Fundação do SaaS AcompanhAí: uma experiência simples para profissionais acompanharem clientes, planos e check-ins com mais consistência.
 
-O primeiro recorte atende personal trainers que trabalham com clientes no Brasil e no Japão. A interface usa português brasileiro; referências comerciais futuras serão apresentadas em ienes (¥).
+O primeiro recorte atende personal trainers que trabalham com clientes no Brasil e no Japão. A interface usa português brasileiro; referências comerciais futuras serão apresentadas em ienes (¥). O produto é independente do Peso Leve e do CarrosserIA.
 
 ## Pré-requisitos
 
