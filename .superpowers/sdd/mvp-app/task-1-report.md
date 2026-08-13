@@ -31,6 +31,15 @@ Isso preserva a regra documental de não reescrever respostas históricas quando
 - Verificação local de arquivos e diff no worktree.
 - Não foi aplicada nenhuma migration em ambiente remoto.
 
+## Correção de revisão
+
+Foi feita uma rodada adicional de revisão textual da SQL para endurecer a superfície de segurança sem ampliar o escopo do MVP:
+
+- As funções auxiliares de autorização e a função `handle_new_user` saíram de `public` e foram movidas para o schema `private`.
+- As policies RLS e o trigger `on_auth_user_created` passaram a referenciar explicitamente `private.*`.
+- As funções em `private` ficaram com `search_path` seguro e privilégios mínimos: `anon` e `authenticated` recebem apenas o necessário para executar os helpers usados nas policies; `handle_new_user` não fica exposta para execução geral.
+- A lógica do trigger foi preservada e confirmada por revisão textual: ele continua inserindo `profile`, `organization` em `trial` e `organization_members` com papel `owner`.
+
 ## Limitações e próximos passos
 
 - Não há teste RLS automatizado ainda; esta tarefa entregou apenas a migration.

@@ -1,5 +1,8 @@
 create extension if not exists pgcrypto with schema extensions;
 
+create schema if not exists private;
+revoke all on schema private from public;
+
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
@@ -21,10 +24,11 @@ as $$
   );
 $$;
 
-create or replace function public.is_platform_admin()
+create or replace function private.is_platform_admin()
 returns boolean
 language sql
 stable
+set search_path = ''
 as $$
   select coalesce(auth.jwt() ->> 'role', '') = 'platform_admin'
       or coalesce(auth.jwt() -> 'app_metadata' ->> 'role', '') = 'platform_admin';
@@ -64,12 +68,12 @@ create unique index organization_members_one_owner_idx
 create index organization_members_user_id_idx
   on public.organization_members (user_id);
 
-create or replace function public.is_organization_member(target_organization_id uuid)
+create or replace function private.is_organization_member(target_organization_id uuid)
 returns boolean
 language sql
 stable
 security definer
-set search_path = public
+set search_path = ''
 as $$
   select exists (
     select 1
@@ -79,12 +83,12 @@ as $$
   );
 $$;
 
-create or replace function public.is_organization_owner(target_organization_id uuid)
+create or replace function private.is_organization_owner(target_organization_id uuid)
 returns boolean
 language sql
 stable
 security definer
-set search_path = public
+set search_path = ''
 as $$
   select exists (
     select 1
@@ -198,11 +202,11 @@ before update on public.check_ins
 for each row
 execute function public.set_updated_at();
 
-create or replace function public.handle_new_user()
+create or replace function private.handle_new_user()
 returns trigger
 language plpgsql
 security definer
-set search_path = public
+set search_path = ''
 as $$
 declare
   base_display_name text;
@@ -261,10 +265,20 @@ begin
 end;
 $$;
 
+revoke all on function private.is_platform_admin() from public;
+revoke all on function private.is_organization_member(uuid) from public;
+revoke all on function private.is_organization_owner(uuid) from public;
+revoke all on function private.handle_new_user() from public;
+
+grant usage on schema private to anon, authenticated;
+grant execute on function private.is_platform_admin() to anon, authenticated;
+grant execute on function private.is_organization_member(uuid) to anon, authenticated;
+grant execute on function private.is_organization_owner(uuid) to anon, authenticated;
+
 create trigger on_auth_user_created
 after insert on auth.users
 for each row
-execute function public.handle_new_user();
+execute function private.handle_new_user();
 
 alter table public.profiles enable row level security;
 alter table public.organizations enable row level security;
@@ -283,93 +297,93 @@ alter table public.check_ins force row level security;
 create policy "profiles_select_self"
   on public.profiles
   for select
-  using (id = auth.uid() or public.is_platform_admin());
+  using (id = auth.uid() or private.is_platform_admin());
 
 create policy "profiles_update_self"
   on public.profiles
   for update
-  using (id = auth.uid() or public.is_platform_admin())
-  with check (id = auth.uid() or public.is_platform_admin());
+  using (id = auth.uid() or private.is_platform_admin())
+  with check (id = auth.uid() or private.is_platform_admin());
 
 create policy "organizations_select_member"
   on public.organizations
   for select
-  using (public.is_organization_member(id) or public.is_platform_admin());
+  using (private.is_organization_member(id) or private.is_platform_admin());
 
 create policy "organizations_update_owner"
   on public.organizations
   for update
-  using (public.is_organization_owner(id) or public.is_platform_admin())
-  with check (public.is_organization_owner(id) or public.is_platform_admin());
+  using (private.is_organization_owner(id) or private.is_platform_admin())
+  with check (private.is_organization_owner(id) or private.is_platform_admin());
 
 create policy "organization_members_select_member"
   on public.organization_members
   for select
   using (
     user_id = auth.uid()
-    or public.is_organization_member(organization_id)
-    or public.is_platform_admin()
+    or private.is_organization_member(organization_id)
+    or private.is_platform_admin()
   );
 
 create policy "clients_select_member"
   on public.clients
   for select
-  using (public.is_organization_member(organization_id) or public.is_platform_admin());
+  using (private.is_organization_member(organization_id) or private.is_platform_admin());
 
 create policy "clients_insert_owner"
   on public.clients
   for insert
-  with check (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  with check (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "clients_update_owner"
   on public.clients
   for update
-  using (public.is_organization_owner(organization_id) or public.is_platform_admin())
-  with check (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  using (private.is_organization_owner(organization_id) or private.is_platform_admin())
+  with check (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "clients_delete_owner"
   on public.clients
   for delete
-  using (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  using (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "plans_select_member"
   on public.plans
   for select
-  using (public.is_organization_member(organization_id) or public.is_platform_admin());
+  using (private.is_organization_member(organization_id) or private.is_platform_admin());
 
 create policy "plans_insert_owner"
   on public.plans
   for insert
-  with check (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  with check (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "plans_update_owner"
   on public.plans
   for update
-  using (public.is_organization_owner(organization_id) or public.is_platform_admin())
-  with check (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  using (private.is_organization_owner(organization_id) or private.is_platform_admin())
+  with check (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "plans_delete_owner"
   on public.plans
   for delete
-  using (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  using (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "check_ins_select_member"
   on public.check_ins
   for select
-  using (public.is_organization_member(organization_id) or public.is_platform_admin());
+  using (private.is_organization_member(organization_id) or private.is_platform_admin());
 
 create policy "check_ins_insert_owner"
   on public.check_ins
   for insert
-  with check (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  with check (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "check_ins_update_owner"
   on public.check_ins
   for update
-  using (public.is_organization_owner(organization_id) or public.is_platform_admin())
-  with check (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  using (private.is_organization_owner(organization_id) or private.is_platform_admin())
+  with check (private.is_organization_owner(organization_id) or private.is_platform_admin());
 
 create policy "check_ins_delete_owner"
   on public.check_ins
   for delete
-  using (public.is_organization_owner(organization_id) or public.is_platform_admin());
+  using (private.is_organization_owner(organization_id) or private.is_platform_admin());
