@@ -2,34 +2,34 @@ const benefits = [
   {
     number: '01',
     icon: 'users',
-    eyebrow: 'Carteira',
-    title: 'Organização',
-    description: 'Cada cliente, plano e próximo passo em um lugar fácil de consultar.',
+    eyebrow: 'Sua carteira',
+    title: 'Clientes no radar',
+    description: 'Veja quem está avançando, quem respondeu e quem precisa de um contato seu.',
   },
   {
     number: '02',
-    icon: 'pulse',
-    eyebrow: 'Acompanhamento',
-    title: 'Presença',
-    description: 'Mantenha o acompanhamento vivo mesmo entre uma sessão e outra.',
+    icon: 'clipboard',
+    eyebrow: 'Seu método',
+    title: 'Planos que continuam',
+    description: 'Compartilhe o próximo passo do cliente sem depender de planilhas ou mensagens soltas.',
   },
   {
     number: '03',
-    icon: 'layers',
-    eyebrow: 'Rotina',
-    title: 'Menos ferramentas espalhadas',
-    description: 'Reduza o vai e volta entre listas, mensagens e anotações soltas.',
+    icon: 'pulse',
+    eyebrow: 'Entre sessões',
+    title: 'Check-ins simples',
+    description: 'Receba a percepção do cliente e identifique cedo quando algo saiu do ritmo.',
   },
   {
     number: '04',
     icon: 'trend',
-    eyebrow: 'Retenção',
-    title: 'Retenção',
-    description: 'Uma experiência consistente ajuda o cliente a continuar avançando.',
+    eyebrow: 'Mais valor percebido',
+    title: 'Acompanhamento que retém',
+    description: 'Uma experiência consistente deixa seu trabalho visível durante toda a jornada.',
   },
 ];
 
-type BenefitIconName = 'users' | 'pulse' | 'layers' | 'trend';
+type BenefitIconName = 'users' | 'clipboard' | 'pulse' | 'trend';
 
 function BenefitIcon({ name }: { name: BenefitIconName }) {
   const props = {
@@ -54,20 +54,20 @@ function BenefitIcon({ name }: { name: BenefitIconName }) {
     );
   }
 
+  if (name === 'clipboard') {
+    return (
+      <svg {...props}>
+        <rect x="5" y="4" width="14" height="16" rx="2" />
+        <path d="M9 4.5V3h6v1.5M8.5 10h7M8.5 14h5" />
+      </svg>
+    );
+  }
+
   if (name === 'pulse') {
     return (
       <svg {...props}>
         <path d="M3 12h3l2-5 4 10 2-5h7" />
         <path d="M12 21a9 9 0 1 1 8.3-5.5" />
-      </svg>
-    );
-  }
-
-  if (name === 'layers') {
-    return (
-      <svg {...props}>
-        <path d="m12 3 8 4.5-8 4.5-8-4.5L12 3Z" />
-        <path d="m4 12 8 4.5 8-4.5M4 16.5l8 4.5 8-4.5" />
       </svg>
     );
   }
@@ -92,7 +92,7 @@ export function Benefits() {
           id="beneficios-title"
           className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl"
         >
-          Para quem vive de acompanhar pessoas — e precisa mostrar valor entre uma sessão e outra.
+          Uma central simples para o profissional e um próximo passo claro para cada cliente.
         </h2>
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-400">
           O AcompanhAí foi pensado primeiro para personal trainers brasileiros que atendem no Japão,

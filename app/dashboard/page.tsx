@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { InviteButton } from '@/components/dashboard/invite-button';
+
 import {
   createCheckInAction,
   createClientAction,
@@ -143,7 +145,7 @@ export default async function DashboardPage() {
               </p>
             </div>
             <span className="w-fit rounded-full border border-mint/20 bg-mint/10 px-4 py-2 text-xs font-semibold text-mint">
-              MVP em uso
+              Acompanhamento ativo
             </span>
           </div>
         </section>
@@ -206,6 +208,7 @@ export default async function DashboardPage() {
                       >
                         {latest ? 'Acompanhado' : 'Pedir check-in'}
                       </span>
+                      <InviteButton clientId={client.id} clientName={client.display_name} />
                     </div>
                   );
                 })
@@ -355,7 +358,7 @@ export default async function DashboardPage() {
         </section>
 
         <footer className="border-t border-white/10 py-8 text-xs text-slate-500">
-          AcompanhAí · MVP em construção · Dados de demonstração e uso inicial
+          AcompanhAí · Dados de demonstração e uso inicial
         </footer>
       </div>
     </main>

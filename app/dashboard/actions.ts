@@ -72,9 +72,15 @@ export async function createPlanAction(formData: FormData): Promise<void> {
     organization_id: organizationId,
     client_id: clientId,
     name,
-    content: description ? [{ type: 'note', text: description }] : [],
+    content: [
+      {
+        title: 'Próximo passo',
+        instruction: description || 'Siga o combinado e conte como foi no próximo check-in.',
+      },
+    ],
     starts_on: startsOn,
-    status: 'draft',
+    status: 'published',
+    published_at: new Date().toISOString(),
   });
 
   if (error) {
