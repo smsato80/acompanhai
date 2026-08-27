@@ -14,18 +14,19 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Commit de implementação desta entrega: `1012b1c`.
+- Commit de implementação desta entrega: `e460d74`.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado: `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b`.
+- Deployment de produção validado: `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
 
 - Landing dark premium com público explícito, benefícios em SVG, mockup de plano/check-in/atenção e rodapé SatoTech.
 - `/login` com cadastro e entrada por e-mail/senha.
+- Recuperação de senha por e-mail e atualização de senha após confirmação segura.
 - `/dashboard` protegido para o profissional.
 - Clientes, planos publicados e check-ins persistidos por organização.
-- Convites com token aleatório, hash SHA-256 persistido, validade de sete dias e uso único.
+- Convites com token aleatório, hash SHA-256 persistido, validade de sete dias e uso único; o GET apenas mostra confirmação e o resgate ocorre no POST.
 - Sessão do cliente por cookie HttpOnly, com validade de 24 horas.
 - `/portal` com plano vigente, itens do acompanhamento e formulário de check-in.
 - Onboarding do profissional em três etapas, com progresso baseado em clientes, planos e check-ins reais.
@@ -51,11 +52,11 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 | --- | --- | --- |
 | Produto e posicionamento | Em validação comercial | Público inicial e preços de referência definidos |
 | Landing | Produção | Rotas públicas verificadas com HTTP 200 |
-| Auth | Implementado e publicado | Ainda falta homologar uma conta real |
+| Auth | Implementado e publicado | Homologar cadastro, login e recuperação com conta real |
 | Organizações e RLS | Implementado | Isolamento negativo com duas contas ainda é teste pendente |
 | Clientes | Implementado | CRUD básico e convite manual |
 | Planos | Implementado básico | Criação publica um item estruturado; editor avançado é próximo passo |
-| Convites | Implementado | Token único, hash, expiração, revogação e sessão |
+| Convites | Implementado | Confirmação antes do resgate, token único, hash, expiração, revogação e sessão |
 | Portal do cliente | Implementado | `/portal` e endpoints de resgate/check-in publicados |
 | Check-ins | Implementado | Status, dificuldade, comentário e snapshot do plano |
 | Painel | Implementado | Onboarding, carteira, atenção e geração de link |
@@ -70,11 +71,11 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 pnpm lint       PASS
 pnpm typecheck  PASS
 pnpm test       PASS — 3 arquivos, 4 testes
-pnpm test:e2e   PASS — 10 testes
+pnpm test:e2e   PASS — 11 testes
 pnpm build      PASS
 ```
 
-Verificação online no deployment `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b`: `/`, `/pricing`, `/terms`, `/privacy` e `/portal` retornaram `200`; `/dashboard` sem sessão retornou `307` para login. A landing também foi conferida para rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
+Verificação online no deployment `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`: `/`, `/pricing`, `/terms`, `/privacy`, `/portal`, `/portal/confirm` e `/auth/update-password` retornaram `200`; `/dashboard` sem sessão retornou `307` para login; um token com formato válido foi encaminhado para a confirmação sem resgate no GET. A landing também foi conferida para rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
 
 ## Próxima validação obrigatória
 
@@ -84,4 +85,5 @@ Executar o fluxo com uma conta autorizada e dados controlados: criar conta, cada
 
 - Envio de mensagens, ativação comercial e cobrança são manuais.
 - Não há integração automática com WhatsApp/LINE, Stripe, IA ou aplicativo nativo.
+- Rate limit dos endpoints sensíveis e captura persistente de leads ainda não foram implementados.
 - A primeira versão não deve receber dados clínicos, fotos, documentos ou informações sensíveis desnecessárias.

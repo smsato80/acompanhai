@@ -1,5 +1,15 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Proteção de convites e recuperação de conta publicados
+
+- Alterado o convite para não ser consumido durante o GET: o link abre uma confirmação e o POST realiza o resgate de uso único.
+- Criada a tela de confirmação do portal e adicionada cobertura E2E para o comportamento.
+- Criado fluxo de recuperação de senha com mensagem anti-enumeração, confirmação via `/auth/confirm` e atualização autenticada.
+- Bloqueado redirecionamento externo no parâmetro `next` da confirmação de autenticação.
+- Ajustado o logout do portal para voltar ao site em vez de exibir JSON bruto.
+- Revalidados 11 testes E2E, quatro testes unitários, lint, typecheck e build.
+- Publicado o deployment `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`.
+
 ## 2026-08-27 — Onboarding e checks comerciais publicados
 
 - Publicado o onboarding do profissional em três etapas: cliente, plano e check-in.

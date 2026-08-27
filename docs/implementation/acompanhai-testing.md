@@ -1,6 +1,6 @@
 # Testes e validação
 
-> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 10 smoke E2E e build passam; a homologação com conta real e teste negativo de RLS continuam pendentes.
+> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 11 smoke E2E e build passam; a homologação com conta real e teste negativo de RLS continuam pendentes.
 
 ## Comandos esperados
 
@@ -26,6 +26,7 @@ pnpm build
 - Exportação e exclusão.
 - Estados loading, vazio, sucesso e erro.
 - Páginas comerciais, remoção do nome provisório e bloqueio do portal sem convite válido.
+- Confirmação do convite antes do resgate, recuperação de senha sem enumeração e proteção do redirecionamento de autenticação.
 - Teclado, foco, contraste e telas de 390px, 768px e desktop.
 
 ## Gates

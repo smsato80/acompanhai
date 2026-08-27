@@ -11,8 +11,8 @@
 ## Autenticação e isolamento
 
 - [ ] Cadastro e login
-- [ ] Recuperação de senha
-- [ ] Logout
+- [x] Recuperação de senha — fluxo implementado; e-mail real ainda precisa de homologação
+- [x] Logout — painel e portal retornam a uma página navegável
 - [ ] Duas organizações isoladas
 - [ ] Cliente não acessa outro cliente
 - [ ] Nenhum segredo aparece no navegador
@@ -22,6 +22,7 @@
 - [ ] Criar cliente
 - [ ] Criar e publicar plano
 - [ ] Gerar convite
+- [ ] Confirmar convite antes do resgate
 - [ ] Trocar convite por sessão
 - [ ] Link usado/expirado/revogado bloqueado
 - [ ] Cliente registra check-in

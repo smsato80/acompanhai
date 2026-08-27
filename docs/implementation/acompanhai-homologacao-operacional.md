@@ -18,13 +18,14 @@
 | Criar cliente | Cliente aparece na carteira da organização | Pendente | — |
 | Criar plano | Plano publicado aparece associado ao cliente | Pendente | — |
 | Gerar convite | Link copiável e mensagem pronta são exibidos | Pendente | — |
-| Abrir convite no celular | Portal mostra apenas o cliente e seu plano | Pendente | — |
+| Abrir convite no celular | Primeiro aparece a confirmação; depois do clique, portal mostra apenas o cliente e seu plano | Pendente | — |
 | Enviar check-in | Status, dificuldade e comentário são salvos | Pendente | — |
 | Voltar ao painel | Retorno aparece para o profissional correto | Pendente | — |
 
 ## Testes negativos
 
 - Abrir o mesmo convite novamente: deve ser recusado porque o convite é de uso único.
+- Abrir o link sem clicar em confirmar: não deve consumir o convite.
 - Revogar um convite antes do uso: deve ser recusado.
 - Esperar a expiração: deve ser recusado.
 - Acessar `/dashboard` sem sessão: deve redirecionar para `/login`.

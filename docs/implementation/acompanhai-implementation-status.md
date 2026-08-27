@@ -18,12 +18,12 @@
 | --------------- | -------------------- | --------------------------------------------------------- |
 | Produto         | Em validação comercial | Entrevistas com profissionais iniciais                  |
 | Landing         | Produção               | Coletar interesse e testar mensagem                       |
-| Auth            | Implementado/publicado | Homologar signup/login com conta controlada               |
+| Auth            | Implementado/publicado | Homologar signup/login/reset com conta controlada         |
 | Schema Supabase | Implementado/publicado | Teste RLS negativo com duas organizações                  |
 | Organizações    | Implementado            | Evoluir onboarding conforme entrevistas                   |
 | Clientes        | Implementado            | Melhorar edição, arquivamento e isolamento E2E            |
 | Planos          | Implementado básico     | Evoluir editor, ordenação e versionamento                 |
-| Convites        | Implementado             | Homologar link usado, expirado e revogado                 |
+| Convites        | Implementado             | Homologar confirmação, link usado, expirado e revogado    |
 | Check-ins       | Implementado             | Homologar idempotência e jornada do cliente               |
 | Painel          | Implementado/publicado | Homologar onboarding com conta profissional               |
 | Billing         | Manual                   | Validar disposição a pagar antes de Stripe                |
@@ -33,4 +33,4 @@
 
 ## Observação sobre a landing
 
-O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b`. O app funcional inclui `/login`, `/dashboard` e `/portal`; o painel também apresenta onboarding baseado nos dados reais da organização.
+O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`. O app funcional inclui `/login`, `/dashboard`, `/portal`, confirmação de convite e recuperação de senha; o painel também apresenta onboarding baseado nos dados reais da organização.
