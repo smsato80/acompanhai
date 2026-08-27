@@ -9,7 +9,9 @@
 - Movidas as implementações privilegiadas das RPCs para `private`, com wrappers públicos `SECURITY INVOKER`.
 - Atualizada a landing para deixar claro o público, incluir SVGs, mockup funcional e rodapé SatoTech.
 - Criadas as páginas públicas de planos, termos e privacidade.
-- Validados `lint`, `typecheck`, quatro testes E2E, quatro testes unitários e `build`.
+- Adicionado onboarding do profissional em três etapas, com progresso calculado a partir dos dados reais do painel.
+- Adicionados seis smoke tests E2E para páginas comerciais, landing e portal sem convite válido.
+- Validados `lint`, `typecheck`, dez testes E2E, quatro testes unitários e `build`.
 - Publicada a produção no Vercel no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
 - Registrada a pendência real: homologar o fluxo com uma conta profissional e um cliente controlado.
 

@@ -14,7 +14,7 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Último commit da branch: `ce141fe`.
+- Último commit da branch: será atualizado após o commit desta entrega.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
 - Deployment de produção validado: `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
 - Estado do deployment: `READY`.
@@ -28,6 +28,7 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Convites com token aleatório, hash SHA-256 persistido, validade de sete dias e uso único.
 - Sessão do cliente por cookie HttpOnly, com validade de 24 horas.
 - `/portal` com plano vigente, itens do acompanhamento e formulário de check-in.
+- Onboarding do profissional em três etapas, com progresso baseado em clientes, planos e check-ins reais.
 - `/pricing`, `/terms` e `/privacy` publicados.
 - Migrations versionadas em `supabase/migrations/`.
 - Documentação do produto, arquitetura, segurança, testes e processo em `docs/`.
@@ -57,7 +58,7 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 | Convites | Implementado | Token único, hash, expiração, revogação e sessão |
 | Portal do cliente | Implementado | `/portal` e endpoints de resgate/check-in publicados |
 | Check-ins | Implementado | Status, dificuldade, comentário e snapshot do plano |
-| Painel | Implementado | Carteira, atenção e geração de link |
+| Painel | Implementado | Onboarding, carteira, atenção e geração de link |
 | Billing | Manual | Sem Stripe, cobrança automática ou webhook |
 | Privacidade | Publicada | Revisão jurídica profissional ainda pendente |
 | IA | Fora da primeira versão | Avaliar após validação do fluxo principal |
@@ -69,7 +70,7 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 pnpm lint       PASS
 pnpm typecheck  PASS
 pnpm test       PASS — 3 arquivos, 4 testes
-pnpm test:e2e   PASS — 4 testes
+pnpm test:e2e   PASS — 10 testes
 pnpm build      PASS
 ```
 

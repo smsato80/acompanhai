@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { InviteButton } from '@/components/dashboard/invite-button';
+import Onboarding from '@/components/dashboard/onboarding';
 
 import {
   createCheckInAction,
@@ -150,6 +151,14 @@ export default async function DashboardPage() {
           </div>
         </section>
 
+        <section className="mt-2" aria-label="Comece seu acompanhamento">
+          <Onboarding
+            clientsCount={clients.length}
+            plansCount={plans.length}
+            checkInsCount={checkIns.length}
+          />
+        </section>
+
         <section
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           aria-label="Resumo do acompanhamento"
@@ -169,7 +178,10 @@ export default async function DashboardPage() {
         </section>
 
         <section className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-          <article className="rounded-[2rem] border border-white/10 bg-panel p-6 shadow-panel sm:p-8">
+          <article
+            id="novo-checkin"
+            className="scroll-mt-8 rounded-[2rem] border border-white/10 bg-panel p-6 shadow-panel sm:p-8"
+          >
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-mint">
@@ -288,7 +300,10 @@ export default async function DashboardPage() {
         </section>
 
         <section className="mt-6 grid gap-6 md:grid-cols-2">
-          <article className="rounded-[2rem] border border-white/10 bg-panel p-6 sm:p-8">
+          <article
+            id="novo-cliente"
+            className="scroll-mt-8 rounded-[2rem] border border-white/10 bg-panel p-6 sm:p-8"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-mint">
               Adicionar à carteira
             </p>
@@ -312,7 +327,10 @@ export default async function DashboardPage() {
             </form>
           </article>
 
-          <article className="rounded-[2rem] border border-white/10 bg-panel p-6 sm:p-8">
+          <article
+            id="novo-plano"
+            className="scroll-mt-8 rounded-[2rem] border border-white/10 bg-panel p-6 sm:p-8"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lilac">
               Seu método
             </p>

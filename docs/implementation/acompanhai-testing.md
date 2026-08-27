@@ -1,6 +1,6 @@
 # Testes e validação
 
-> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 4 smoke E2E e build passam; a homologação com conta real e teste negativo de RLS continuam pendentes.
+> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 10 smoke E2E e build passam; a homologação com conta real e teste negativo de RLS continuam pendentes.
 
 ## Comandos esperados
 
@@ -25,6 +25,7 @@ pnpm build
 - Assinatura cancelada e inadimplente.
 - Exportação e exclusão.
 - Estados loading, vazio, sucesso e erro.
+- Páginas comerciais, remoção do nome provisório e bloqueio do portal sem convite válido.
 - Teclado, foco, contraste e telas de 390px, 768px e desktop.
 
 ## Gates
