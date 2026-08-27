@@ -29,7 +29,8 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - Rotas publicadas: `/login`, `/auth/confirm`, `/auth/update-password`, `/dashboard`, `/portal`, `/portal/confirm`, `/pricing`, `/terms` e `/privacy`.
 - Supabase: migration `mvp_core_schema` e endurecimento de `search_path` aplicados no projeto `xwbfzyoltsbpbvsnlmfg`.
 - Supabase: migrations `sellable_client_portal`, `grant_portal_invite_access` e `harden_portal_rpc_exposure` aplicadas no projeto `xwbfzyoltsbpbvsnlmfg`.
-- Vercel: deployment de produção do branch MVP `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`, estado `READY`.
+- Supabase: migration `interest_leads` aplicada no projeto `xwbfzyoltsbpbvsnlmfg`, com RLS forçada e INSERT controlado.
+- Vercel: deployment de produção atual do branch MVP `dpl_8B61Xko7arUyTCajbFLKDkJnMnjk`, estado `READY`.
 - Variáveis necessárias no deploy: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` e `NEXT_PUBLIC_SITE_URL`.
 
 ### Verificação pública atual
@@ -38,8 +39,9 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - Título: `AcompanhAí — acompanhamento que continua`.
 - Headline: `Seu cliente não precisa se perder no caminho.`
 - CTA: `Quero testar` visível.
-- Checks locais aprovados: `lint`, `typecheck`, `test` (4 unitários), `test:e2e` (4) e `build`.
+- Checks locais aprovados: `lint`, `typecheck`, `test` (4 unitários), `test:e2e` (11) e `build`.
 - `/pricing`, `/terms`, `/privacy` e `/portal` retornaram `200`; `/dashboard` sem sessão retornou `307` para login.
+- O painel agora devolve feedback explícito para sucesso ou erro ao criar cliente, publicar plano e salvar check-in.
 
 ## Pré-requisitos
 
