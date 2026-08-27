@@ -29,7 +29,7 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - Rotas publicadas: `/login`, `/auth/confirm`, `/auth/update-password`, `/dashboard`, `/portal`, `/portal/confirm`, `/pricing`, `/terms` e `/privacy`.
 - Supabase: migration `mvp_core_schema` e endurecimento de `search_path` aplicados no projeto `xwbfzyoltsbpbvsnlmfg`.
 - Supabase: migrations `sellable_client_portal`, `grant_portal_invite_access` e `harden_portal_rpc_exposure` aplicadas no projeto `xwbfzyoltsbpbvsnlmfg`.
-- Vercel: deployment de produção do branch MVP `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`, estado `READY`.
+- Vercel: deployment de produção do branch MVP `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`, estado `READY`.
 - Variáveis necessárias no deploy: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` e `NEXT_PUBLIC_SITE_URL`.
 
 ### Verificação pública atual

@@ -25,7 +25,7 @@
 | Planos          | Implementado básico     | Evoluir editor, ordenação e versionamento                 |
 | Convites        | Implementado             | Homologar confirmação, link usado, expirado e revogado    |
 | Check-ins       | Implementado             | Homologar idempotência e jornada do cliente               |
-| Painel          | Implementado/publicado | Homologar onboarding com conta profissional               |
+| Painel          | Implementado/publicado | Homologar onboarding e atenção com conta profissional     |
 | Billing         | Manual                   | Validar disposição a pagar antes de Stripe                |
 | Privacidade     | Publicada                | Revisão jurídica e contato oficial                        |
 | IA              | Fora da primeira versão  | Reavaliar após validar o fluxo central                    |
@@ -33,4 +33,4 @@
 
 ## Observação sobre a landing
 
-O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`. O app funcional inclui `/login`, `/dashboard`, `/portal`, confirmação de convite e recuperação de senha; o painel também apresenta onboarding baseado nos dados reais da organização.
+O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`. O app funcional inclui `/login`, `/dashboard`, `/portal`, confirmação de convite e recuperação de senha; o painel também apresenta onboarding e atenção baseada nos dados reais da organização.

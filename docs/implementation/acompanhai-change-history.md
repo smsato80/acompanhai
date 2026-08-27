@@ -1,5 +1,13 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Atenção do painel tornada acionável
+
+- A carteira passou a buscar os check-ins sem limitar artificialmente aos 20 registros mais recentes.
+- A área “Atenção hoje” agora considera ausência de retorno, status parcial/não concluído, dificuldade igual ou superior a 4 e retorno atrasado no fuso da organização.
+- O profissional passou a ver o motivo da atenção e, quando disponível, comentário e dificuldade do último check-in.
+- Revalidados 11 testes E2E, quatro testes unitários, lint, typecheck e build.
+- Publicado o commit `0246e54` e o deployment `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`.
+
 ## 2026-08-27 — Proteção de convites e recuperação de conta publicados
 
 - Alterado o convite para não ser consumido durante o GET: o link abre uma confirmação e o POST realiza o resgate de uso único.

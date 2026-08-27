@@ -14,9 +14,9 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Commit de implementação desta entrega: `e460d74`.
+- Commit de implementação desta entrega: `0246e54`.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado: `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`.
+- Deployment de produção validado: `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
@@ -30,6 +30,7 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Sessão do cliente por cookie HttpOnly, com validade de 24 horas.
 - `/portal` com plano vigente, itens do acompanhamento e formulário de check-in.
 - Onboarding do profissional em três etapas, com progresso baseado em clientes, planos e check-ins reais.
+- Atenção acionável no painel: falta de retorno, retorno parcial/não concluído, dificuldade alta e retorno atrasado, com motivo e comentário visíveis.
 - `/pricing`, `/terms` e `/privacy` publicados.
 - Migrations versionadas em `supabase/migrations/`.
 - Documentação do produto, arquitetura, segurança, testes e processo em `docs/`.
@@ -75,7 +76,7 @@ pnpm test:e2e   PASS — 11 testes
 pnpm build      PASS
 ```
 
-Verificação online no deployment `dpl_9dcE5TuALAXc4LTE1xyc5oMTTQ6r`: `/`, `/pricing`, `/terms`, `/privacy`, `/portal`, `/portal/confirm` e `/auth/update-password` retornaram `200`; `/dashboard` sem sessão retornou `307` para login; um token com formato válido foi encaminhado para a confirmação sem resgate no GET. A landing também foi conferida para rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
+Verificação online no deployment `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`: `/`, `/pricing`, `/terms`, `/privacy`, `/portal`, `/portal/confirm` e `/auth/update-password` retornaram `200`; `/dashboard` sem sessão retornou `307` para login; um token com formato válido foi encaminhado para a confirmação sem resgate no GET. A landing também foi conferida para rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
 
 ## Próxima validação obrigatória
 
