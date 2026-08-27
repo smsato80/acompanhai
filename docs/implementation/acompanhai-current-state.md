@@ -14,7 +14,7 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Último commit da branch: `8b30a22`.
+- Último commit da branch: `fa69914`.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
 - Deployment de produção validado: `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
 - Estado do deployment: `READY`.

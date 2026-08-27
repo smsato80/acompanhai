@@ -13,6 +13,12 @@
 - Publicada a produção no Vercel no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
 - Registrada a pendência real: homologar o fluxo com uma conta profissional e um cliente controlado.
 
+## 2026-08-27 — Documentação consolidada
+
+- Sincronizados o estado atual, status de implementação, inventário, runbook de deploy, configuração Supabase, arquitetura, testes e README.
+- Mantidos os registros históricos de 12 e 13 de agosto, agora distinguidos do estado vigente.
+- Registrado que a próxima etapa não é mais publicar o app, e sim homologar a jornada real e testar isolamento entre organizações.
+
 ## 2026-08-13 — Landing premium refinada e publicada
 
 - Trocados os indicadores numéricos dos benefícios por ícones SVG inline, mantendo acessibilidade e sem dependências externas.
