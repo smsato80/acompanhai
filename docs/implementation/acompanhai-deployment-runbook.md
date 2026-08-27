@@ -1,6 +1,6 @@
 # Runbook de deploy
 
-> Atualizado em 2026-08-27: landing e primeira versão vendável do app publicadas e verificadas no deployment `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`. A homologação real do fluxo profissional/cliente continua pendente.
+> Atualizado em 2026-08-27: landing e primeira versão vendável do app publicadas e verificadas no deployment `dpl_BQHZKaxijwJDDaP3iykBoMTcV2So`. A homologação real do fluxo profissional/cliente continua pendente.
 
 ## Estado da landing de demonstração
 
@@ -30,7 +30,7 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - Supabase: migration `mvp_core_schema` e endurecimento de `search_path` aplicados no projeto `xwbfzyoltsbpbvsnlmfg`.
 - Supabase: migrations `sellable_client_portal`, `grant_portal_invite_access` e `harden_portal_rpc_exposure` aplicadas no projeto `xwbfzyoltsbpbvsnlmfg`.
 - Supabase: migration `interest_leads` aplicada no projeto `xwbfzyoltsbpbvsnlmfg`, com RLS forçada e INSERT controlado.
-- Vercel: deployment de produção atual do branch MVP `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`, estado `READY`.
+- Vercel: deployment de produção atual do branch MVP `dpl_BQHZKaxijwJDDaP3iykBoMTcV2So`, estado `READY`.
 - Variáveis necessárias no deploy: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` e `NEXT_PUBLIC_SITE_URL`.
 
 ### Verificação pública atual

@@ -5,7 +5,7 @@
 - Verificado o HEAD `78c63ad` no worktree `feature/mvp-app`, sem alterações não commitadas.
 - Revalidados `pnpm lint`, `pnpm typecheck`, `pnpm test` (4 testes unitários), `pnpm test:e2e` (11 smoke tests) e `pnpm build`.
 - `pnpm format:check` continua pendente por 48 arquivos preexistentes; nenhuma formatação em massa foi aplicada.
-- Publicado explicitamente em produção pela CLI autenticada da Vercel: deployment `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`, estado `READY`.
+- Publicado explicitamente em produção pela CLI autenticada da Vercel: deployment `dpl_BQHZKaxijwJDDaP3iykBoMTcV2So`, estado `READY`.
 - Verificados publicamente `https://acompanhai.vercel.app`, `/pricing`, `/login`, `/portal`, `/terms` e `/privacy` com resposta HTTP `200`.
 - A homologação com conta sintética autorizada, criação de cliente/plano, convite e check-in continua pendente; nenhum convite externo foi enviado.
 

@@ -16,7 +16,7 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Branch: `feature/mvp-app`.
 - HEAD de código verificado: `78c63ad` (`docs: refresh deployment runbook`).
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado nesta execução: `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`.
+- Deployment de produção validado nesta execução: `dpl_BQHZKaxijwJDDaP3iykBoMTcV2So`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
@@ -79,7 +79,7 @@ pnpm test:e2e   PASS — 11 testes
 pnpm build      PASS
 ```
 
-Verificação online no deployment `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`: `/`, `/pricing`, `/login`, `/portal`, `/terms` e `/privacy` retornaram `200`; o deployment está `READY` e foi associado ao alias de produção. A suíte E2E local cobriu 11 smoke tests, incluindo proteção do dashboard, confirmação do portal sem resgate automático, token inválido, páginas comerciais, landing e consentimento do lead. A homologação com conta autorizada continua pendente.
+Verificação online no deployment `dpl_BQHZKaxijwJDDaP3iykBoMTcV2So`: `/`, `/pricing`, `/login`, `/portal`, `/terms` e `/privacy` retornaram `200`; o deployment está `READY` e foi associado ao alias de produção. A suíte E2E local cobriu 11 smoke tests, incluindo proteção do dashboard, confirmação do portal sem resgate automático, token inválido, páginas comerciais, landing e consentimento do lead. A homologação com conta autorizada continua pendente.
 
 ## Próxima validação obrigatória
 
