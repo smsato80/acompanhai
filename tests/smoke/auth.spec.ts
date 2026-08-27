@@ -7,6 +7,7 @@ test('o login apresenta o primeiro acesso do profissional', async ({ page }) => 
   await expect(page.getByRole('heading', { name: /Seu acompanhamento começa aqui/ })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Entrar' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Criar minha conta' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Esqueci minha senha' })).toBeVisible();
 });
 
 test('o painel exige uma sessão autenticada', async ({ page }) => {

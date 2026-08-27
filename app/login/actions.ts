@@ -66,3 +66,60 @@ export async function authenticate(
 
   redirect('/dashboard');
 }
+
+export async function requestPasswordReset(
+  _previousState: AuthActionState,
+  formData: FormData,
+): Promise<AuthActionState> {
+  const email = String(formData.get('email') ?? '')
+    .trim()
+    .toLowerCase();
+
+  if (!email || !email.includes('@')) {
+    return { error: 'Digite um e-mail válido.' };
+  }
+
+  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  const supabase = await createSupabaseServerClient();
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${origin}/auth/confirm?next=${encodeURIComponent('/auth/update-password')}`,
+  });
+
+  if (error) {
+    return { error: 'Não foi possível enviar o e-mail de recuperação agora.' };
+  }
+
+  return {
+    message: 'Se existir uma conta para este e-mail, enviaremos as instruções de recuperação.',
+  };
+}
+
+export async function updatePasswordAction(
+  _previousState: AuthActionState,
+  formData: FormData,
+): Promise<AuthActionState> {
+  const password = String(formData.get('password') ?? '');
+  const confirmation = String(formData.get('confirmation') ?? '');
+
+  if (password.length < 6) {
+    return { error: 'A senha precisa ter pelo menos 6 caracteres.' };
+  }
+
+  if (password !== confirmation) {
+    return { error: 'As senhas não conferem.' };
+  }
+
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase.auth.getUser();
+
+  if (!data.user) {
+    return { error: 'O link de recuperação expirou. Solicite um novo e-mail.' };
+  }
+
+  const { error } = await supabase.auth.updateUser({ password });
+  if (error) {
+    return { error: 'Não foi possível atualizar sua senha agora.' };
+  }
+
+  redirect('/dashboard');
+}

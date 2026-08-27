@@ -1,6 +1,18 @@
 import { expect, test } from '@playwright/test';
 
 test.describe('portal público do cliente', () => {
+  test('um link com formato válido pede confirmação antes do resgate', async ({ page }) => {
+    const candidateToken = 'a'.repeat(43);
+
+    await page.goto(`/portal/${candidateToken}`);
+
+    await expect(page).toHaveURL(new RegExp(`/portal/confirm\\?token=${candidateToken}$`));
+    await expect(
+      page.getByRole('heading', { name: 'Abrir seu espaço de acompanhamento.' }),
+    ).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Abrir acompanhamento' })).toBeVisible();
+  });
+
   test('sem sessão, bloqueia o acesso e orienta a solicitar novo link', async ({ page }) => {
     await page.context().clearCookies();
     await page.goto('/portal');
