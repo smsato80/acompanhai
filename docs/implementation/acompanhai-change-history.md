@@ -1,5 +1,12 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Feedback das ações do painel publicado
+
+- As ações de cadastro de cliente, publicação de plano e salvamento de check-in agora informam sucesso na própria tela após a gravação.
+- Falhas de validação, ausência de espaço de trabalho e erro de persistência agora retornam mensagens genéricas e acionáveis, sem falhar silenciosamente.
+- Revalidados 11 testes E2E, quatro testes unitários, lint, typecheck e build.
+- Publicado o commit `51e3ede` e o deployment `dpl_8B61Xko7arUyTCajbFLKDkJnMnjk` em estado `READY`.
+
 ## 2026-08-27 — Captação real de interesse publicada
 
 - O formulário “Quero testar” deixou de ser apenas local e passou a enviar leads para `/api/leads`.

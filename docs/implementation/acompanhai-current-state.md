@@ -14,9 +14,9 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Commit de implementação desta entrega: `93ef425`.
+- Commit de implementação desta entrega: `51e3ede`.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado: `dpl_63589xiiNa1ocAnKWyHfwRK899Wh`.
+- Deployment de produção validado: `dpl_8B61Xko7arUyTCajbFLKDkJnMnjk`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
@@ -32,6 +32,7 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - `/portal` com plano vigente, itens do acompanhamento e formulário de check-in.
 - Onboarding do profissional em três etapas, com progresso baseado em clientes, planos e check-ins reais.
 - Atenção acionável no painel: falta de retorno, retorno parcial/não concluído, dificuldade alta e retorno atrasado, com motivo e comentário visíveis.
+- Ações de cliente, plano e check-in com feedback explícito de sucesso ou erro na própria tela do painel.
 - `/pricing`, `/terms` e `/privacy` publicados.
 - Migrations versionadas em `supabase/migrations/`.
 - Documentação do produto, arquitetura, segurança, testes e processo em `docs/`.
@@ -61,7 +62,7 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 | Convites | Implementado | Confirmação antes do resgate, token único, hash, expiração, revogação e sessão |
 | Portal do cliente | Implementado | `/portal` e endpoints de resgate/check-in publicados |
 | Check-ins | Implementado | Status, dificuldade, comentário e snapshot do plano |
-| Painel | Implementado | Onboarding, carteira, atenção e geração de link |
+| Painel | Implementado/publicado | Onboarding, carteira, atenção, geração de link e feedback das ações |
 | Billing | Manual | Sem Stripe, cobrança automática ou webhook |
 | Privacidade | Publicada | Revisão jurídica profissional ainda pendente |
 | IA | Fora da primeira versão | Avaliar após validação do fluxo principal |
@@ -78,7 +79,7 @@ pnpm test:e2e   PASS — 11 testes
 pnpm build      PASS
 ```
 
-Verificação online no deployment `dpl_63589xiiNa1ocAnKWyHfwRK899Wh`: `/`, `/pricing`, `/terms`, `/privacy`, `/portal`, `/portal/confirm` e `/auth/update-password` retornaram `200`; `/dashboard` sem sessão retornou `307` para login; um token com formato válido foi encaminhado para a confirmação sem resgate no GET; `/api/leads` rejeitou GET com `405` e payload inválido com `400`. A landing também foi conferida para consentimento, rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
+Verificação online no deployment `dpl_8B61Xko7arUyTCajbFLKDkJnMnjk`: `/`, `/pricing` e `/privacy` retornaram `200`; `/dashboard` sem sessão retornou `307` para `/login`; `/api/leads` rejeitou GET com `405`. A landing permanece conferida para consentimento, rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
 
 ## Próxima validação obrigatória
 

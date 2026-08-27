@@ -25,6 +25,7 @@ pnpm build
 - Assinatura cancelada e inadimplente.
 - Exportação e exclusão.
 - Estados loading, vazio, sucesso e erro.
+- Feedback de sucesso e erro nas ações principais do painel.
 - Páginas comerciais, remoção do nome provisório e bloqueio do portal sem convite válido.
 - Confirmação do convite antes do resgate, recuperação de senha sem enumeração e proteção do redirecionamento de autenticação.
 - Teclado, foco, contraste e telas de 390px, 768px e desktop.
