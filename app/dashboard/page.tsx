@@ -15,7 +15,35 @@ export const dynamic = 'force-dynamic';
 
 type Client = { id: string; display_name: string; contact_value: string | null; status: string };
 type Plan = { id: string; name: string; status: string; client_id: string };
-type CheckIn = { client_id: string; status: string; comment: string | null; created_at: string };
+type CheckIn = {
+  client_id: string;
+  status: string;
+  difficulty: number | null;
+  comment: string | null;
+  scheduled_on: string;
+  submitted_at: string;
+};
+
+type AttentionItem = {
+  client: Client;
+  checkIn: CheckIn | undefined;
+  reason: string;
+};
+
+function getTodayInTimeZone(timeZone: string | undefined) {
+  try {
+    const parts = new Intl.DateTimeFormat('en', {
+      timeZone: timeZone || 'Asia/Tokyo',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+    return `${values.year}-${values.month}-${values.day}`;
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
 
 export default async function DashboardPage() {
   const supabase = await createSupabaseServerClient();
@@ -75,13 +103,13 @@ export default async function DashboardPage() {
       .order('created_at', { ascending: false }),
     supabase
       .from('check_ins')
-      .select('client_id, status, comment, created_at')
+      .select('client_id, status, difficulty, comment, scheduled_on, submitted_at')
       .eq('organization_id', membership.organization_id)
-      .order('created_at', { ascending: false })
-      .limit(20),
+      .order('scheduled_on', { ascending: false })
+      .order('submitted_at', { ascending: false }),
     supabase
       .from('organizations')
-      .select('name')
+      .select('name, timezone')
       .eq('id', membership.organization_id)
       .maybeSingle(),
   ]);
@@ -93,7 +121,23 @@ export default async function DashboardPage() {
   checkIns.forEach((checkIn) => {
     if (!latestCheckIn.has(checkIn.client_id)) latestCheckIn.set(checkIn.client_id, checkIn);
   });
-  const pendingAttention = clients.filter((client) => !latestCheckIn.has(client.id)).slice(0, 3);
+  const today = getTodayInTimeZone(organization?.timezone);
+  const attentionItems: AttentionItem[] = clients
+    .map((client) => {
+      const checkIn = latestCheckIn.get(client.id);
+      let reason = '';
+
+      if (!checkIn) reason = 'Ainda não respondeu';
+      else if (checkIn.status === 'not_done') reason = 'Não conseguiu concluir';
+      else if (checkIn.status === 'partial') reason = 'Concluiu parcialmente';
+      else if ((checkIn.difficulty ?? 0) >= 4) reason = `Dificuldade ${checkIn.difficulty}/5`;
+      else if (checkIn.scheduled_on < today) reason = 'Retorno atrasado';
+
+      return reason ? { client, checkIn, reason } : null;
+    })
+    .filter((item): item is AttentionItem => item !== null);
+  const visibleAttentionItems = attentionItems.slice(0, 3);
+  const attentionByClient = new Map(attentionItems.map((item) => [item.client.id, item]));
   const completedCheckIns = checkIns.filter((checkIn) => checkIn.status === 'done').length;
   const displayName =
     user.user_metadata?.display_name || user.email?.split('@')[0] || 'profissional';
@@ -167,7 +211,7 @@ export default async function DashboardPage() {
             ['0' + clients.length, 'clientes ativos', 'Sua carteira atual'],
             ['0' + completedCheckIns, 'check-ins registrados', 'Respostas acompanhadas'],
             ['0' + plans.length, 'planos ativos', 'Estruturas de trabalho'],
-            ['0' + pendingAttention.length, 'atenções hoje', 'Próximos contatos'],
+            ['0' + attentionItems.length, 'atenções hoje', 'Próximos contatos'],
           ].map(([value, label, detail]) => (
             <article key={label} className="rounded-3xl border border-white/10 bg-white/[0.04] p-5">
               <p className="text-3xl font-semibold tracking-tight">{value}</p>
@@ -199,6 +243,7 @@ export default async function DashboardPage() {
               ) : (
                 clients.map((client) => {
                   const latest = latestCheckIn.get(client.id);
+                  const attention = attentionByClient.get(client.id);
                   return (
                     <div
                       key={client.id}
@@ -212,13 +257,18 @@ export default async function DashboardPage() {
                           {client.display_name}
                         </p>
                         <p className="truncate text-xs text-slate-500">
-                          {client.contact_value || 'Sem e-mail informado'}
+                          {attention?.reason || client.contact_value || 'Sem e-mail informado'}
                         </p>
+                        {attention?.checkIn?.comment ? (
+                          <p className="mt-1 truncate text-xs text-slate-600">
+                            “{attention.checkIn.comment}”
+                          </p>
+                        ) : null}
                       </div>
                       <span
-                        className={`hidden rounded-full px-3 py-1 text-[10px] font-bold sm:inline-flex ${latest ? 'bg-mint/10 text-mint' : 'bg-lilac/10 text-lilac'}`}
+                        className={`hidden rounded-full px-3 py-1 text-[10px] font-bold sm:inline-flex ${attention ? 'bg-lilac/10 text-lilac' : 'bg-mint/10 text-mint'}`}
                       >
-                        {latest ? 'Acompanhado' : 'Pedir check-in'}
+                        {attention ? 'Atenção' : latest ? 'Acompanhado' : 'Pedir check-in'}
                       </span>
                       <InviteButton clientId={client.id} clientName={client.display_name} />
                     </div>
@@ -235,16 +285,27 @@ export default async function DashboardPage() {
               </p>
               <h2 className="mt-2 text-2xl font-semibold">Próximos contatos</h2>
               <div className="mt-5 space-y-3">
-                {pendingAttention.length === 0 ? (
+                {attentionItems.length === 0 ? (
                   <p className="text-sm leading-6 text-slate-300">
                     Tudo em dia por enquanto. Continue mantendo o ritmo.
                   </p>
                 ) : (
-                  pendingAttention.map((client) => (
-                    <div key={client.id} className="flex items-center gap-3 text-sm text-slate-300">
+                  visibleAttentionItems.map(({ client, checkIn, reason }) => (
+                    <div key={client.id} className="flex items-start gap-3 text-sm text-slate-300">
                       <span className="h-2 w-2 rounded-full bg-lilac" />
-                      <span className="flex-1 truncate">{client.display_name}</span>
-                      <span className="text-xs text-lilac">check-in</span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate">{client.display_name}</span>
+                        <span className="mt-1 block truncate text-xs text-slate-500">
+                          {checkIn?.difficulty
+                            ? `${reason} · dificuldade ${checkIn.difficulty}/5`
+                            : reason}
+                        </span>
+                        {checkIn?.comment ? (
+                          <span className="mt-1 block truncate text-xs text-slate-600">
+                            “{checkIn.comment}”
+                          </span>
+                        ) : null}
+                      </span>
                     </div>
                   ))
                 )}
