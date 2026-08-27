@@ -14,9 +14,9 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Commit de implementação desta entrega: `51e3ede`.
+- HEAD de código verificado: `78c63ad` (`docs: refresh deployment runbook`).
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado: `dpl_8B61Xko7arUyTCajbFLKDkJnMnjk`.
+- Deployment de produção validado nesta execução: `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
@@ -79,7 +79,7 @@ pnpm test:e2e   PASS — 11 testes
 pnpm build      PASS
 ```
 
-Verificação online no deployment `dpl_8B61Xko7arUyTCajbFLKDkJnMnjk`: `/`, `/pricing` e `/privacy` retornaram `200`; `/dashboard` sem sessão retornou `307` para `/login`; `/api/leads` rejeitou GET com `405`. A landing permanece conferida para consentimento, rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
+Verificação online no deployment `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`: `/`, `/pricing`, `/login`, `/portal`, `/terms` e `/privacy` retornaram `200`; o deployment está `READY` e foi associado ao alias de produção. A suíte E2E local cobriu 11 smoke tests, incluindo proteção do dashboard, confirmação do portal sem resgate automático, token inválido, páginas comerciais, landing e consentimento do lead. A homologação com conta autorizada continua pendente.
 
 ## Próxima validação obrigatória
 

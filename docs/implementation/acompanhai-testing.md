@@ -1,6 +1,6 @@
 # Testes e validação
 
-> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 11 smoke E2E e build passam; a homologação com conta real e teste negativo de RLS continuam pendentes.
+> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 11 smoke E2E e build passam; `format:check` ainda aponta 48 arquivos preexistentes; a homologação com conta real e teste negativo de RLS continuam pendentes.
 
 ## Comandos esperados
 

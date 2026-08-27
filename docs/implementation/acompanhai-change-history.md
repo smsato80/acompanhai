@@ -1,5 +1,14 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Redeploy de produção e verificação pública do piloto
+
+- Verificado o HEAD `78c63ad` no worktree `feature/mvp-app`, sem alterações não commitadas.
+- Revalidados `pnpm lint`, `pnpm typecheck`, `pnpm test` (4 testes unitários), `pnpm test:e2e` (11 smoke tests) e `pnpm build`.
+- `pnpm format:check` continua pendente por 48 arquivos preexistentes; nenhuma formatação em massa foi aplicada.
+- Publicado explicitamente em produção pela CLI autenticada da Vercel: deployment `dpl_9piYZhXPHacn69sNUpvFoVbfFbDj`, estado `READY`.
+- Verificados publicamente `https://acompanhai.vercel.app`, `/pricing`, `/login`, `/portal`, `/terms` e `/privacy` com resposta HTTP `200`.
+- A homologação com conta sintética autorizada, criação de cliente/plano, convite e check-in continua pendente; nenhum convite externo foi enviado.
+
 ## 2026-08-27 — Feedback das ações do painel publicado
 
 - As ações de cadastro de cliente, publicação de plano e salvamento de check-in agora informam sucesso na própria tela após a gravação.
