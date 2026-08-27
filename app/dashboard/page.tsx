@@ -30,6 +30,26 @@ type AttentionItem = {
   reason: string;
 };
 
+type DashboardPageProps = {
+  searchParams: Promise<{ status?: string | string[] }>;
+};
+
+const statusMessages: Record<string, { tone: 'success' | 'error'; message: string }> = {
+  'client-created': { tone: 'success', message: 'Cliente cadastrado na sua carteira.' },
+  'plan-created': { tone: 'success', message: 'Plano publicado e pronto para compartilhar.' },
+  'check-in-created': { tone: 'success', message: 'Check-in salvo no acompanhamento.' },
+  'invalid-client': { tone: 'error', message: 'Informe um nome válido para o cliente.' },
+  'invalid-plan': { tone: 'error', message: 'Preencha cliente, nome e data de início do plano.' },
+  'invalid-check-in': { tone: 'error', message: 'Selecione um cliente e um plano para continuar.' },
+  'workspace-missing': {
+    tone: 'error',
+    message: 'Não encontramos seu espaço de trabalho. Entre em contato com a SatoTech.',
+  },
+  'client-error': { tone: 'error', message: 'Não foi possível cadastrar o cliente agora.' },
+  'plan-error': { tone: 'error', message: 'Não foi possível publicar o plano agora.' },
+  'check-in-error': { tone: 'error', message: 'Não foi possível salvar o check-in agora.' },
+};
+
 function getTodayInTimeZone(timeZone: string | undefined) {
   try {
     const parts = new Intl.DateTimeFormat('en', {
@@ -45,7 +65,10 @@ function getTodayInTimeZone(timeZone: string | undefined) {
   }
 }
 
-export default async function DashboardPage() {
+export default async function DashboardPage({ searchParams }: DashboardPageProps) {
+  const params = await searchParams;
+  const rawStatus = Array.isArray(params.status) ? params.status[0] : params.status;
+  const status = rawStatus ? statusMessages[rawStatus] : undefined;
   const supabase = await createSupabaseServerClient();
   const { data: userData } = await supabase.auth.getUser();
   const user = userData.user;
@@ -202,6 +225,19 @@ export default async function DashboardPage() {
             checkInsCount={checkIns.length}
           />
         </section>
+
+        {status ? (
+          <p
+            role={status.tone === 'error' ? 'alert' : 'status'}
+            className={`mt-5 rounded-2xl border px-4 py-3 text-sm ${
+              status.tone === 'error'
+                ? 'border-rose-300/20 bg-rose-300/10 text-rose-100'
+                : 'border-mint/20 bg-mint/10 text-mint'
+            }`}
+          >
+            {status.message}
+          </p>
+        ) : null}
 
         <section
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"

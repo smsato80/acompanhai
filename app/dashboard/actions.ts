@@ -30,12 +30,12 @@ export async function createClientAction(formData: FormData): Promise<void> {
     .toLowerCase();
 
   if (name.length < 2) {
-    return;
+    redirect('/dashboard?status=invalid-client');
   }
 
   const { supabase, organizationId } = await requireWorkspace();
   if (!organizationId) {
-    return;
+    redirect('/dashboard?status=workspace-missing');
   }
 
   const { error } = await supabase.from('clients').insert({
@@ -47,10 +47,11 @@ export async function createClientAction(formData: FormData): Promise<void> {
   });
 
   if (error) {
-    return;
+    redirect('/dashboard?status=client-error');
   }
 
   revalidatePath('/dashboard');
+  redirect('/dashboard?status=client-created');
 }
 
 export async function createPlanAction(formData: FormData): Promise<void> {
@@ -60,12 +61,12 @@ export async function createPlanAction(formData: FormData): Promise<void> {
   const startsOn = String(formData.get('startsOn') ?? '');
 
   if (name.length < 2 || !clientId || !startsOn) {
-    return;
+    redirect('/dashboard?status=invalid-plan');
   }
 
   const { supabase, organizationId } = await requireWorkspace();
   if (!organizationId) {
-    return;
+    redirect('/dashboard?status=workspace-missing');
   }
 
   const { error } = await supabase.from('plans').insert({
@@ -84,10 +85,11 @@ export async function createPlanAction(formData: FormData): Promise<void> {
   });
 
   if (error) {
-    return;
+    redirect('/dashboard?status=plan-error');
   }
 
   revalidatePath('/dashboard');
+  redirect('/dashboard?status=plan-created');
 }
 
 export async function createCheckInAction(formData: FormData): Promise<void> {
@@ -97,12 +99,12 @@ export async function createCheckInAction(formData: FormData): Promise<void> {
   const difficulty = Number(formData.get('difficulty') ?? 0);
 
   if (!clientId || !planId) {
-    return;
+    redirect('/dashboard?status=invalid-check-in');
   }
 
   const { supabase, organizationId } = await requireWorkspace();
   if (!organizationId) {
-    return;
+    redirect('/dashboard?status=workspace-missing');
   }
 
   const { error } = await supabase.from('check_ins').insert({
@@ -116,10 +118,11 @@ export async function createCheckInAction(formData: FormData): Promise<void> {
   });
 
   if (error) {
-    return;
+    redirect('/dashboard?status=check-in-error');
   }
 
   revalidatePath('/dashboard');
+  redirect('/dashboard?status=check-in-created');
 }
 
 export async function signOutAction() {
