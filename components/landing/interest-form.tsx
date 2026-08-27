@@ -1,13 +1,48 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import Link from 'next/link';
 
 export function InterestForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setPending(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          whatsapp: formData.get('whatsapp'),
+          consent: formData.get('consent') === 'on',
+        }),
+      });
+
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(payload?.error || 'Não foi possível registrar seu interesse agora.');
+      }
+
+      setSubmitted(true);
+    } catch (submitError) {
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : 'Não foi possível registrar seu interesse agora.',
+      );
+    } finally {
+      setPending(false);
+    }
   }
 
   return (
@@ -42,8 +77,8 @@ export function InterestForm() {
           >
             <h3 className="text-xl font-semibold text-mint">Recebemos seu interesse.</h3>
             <p className="mt-2 text-sm leading-6 text-slate-300">
-              Obrigado por querer testar o AcompanhAí. Esta é uma demonstração local e nenhum dado
-              foi enviado.
+              Obrigado por querer testar o AcompanhAí. A SatoTech recebeu seus dados e poderá entrar
+              em contato sobre a demonstração inicial.
             </p>
           </div>
         ) : (
@@ -89,11 +124,35 @@ export function InterestForm() {
                 placeholder="(00) 00000-0000"
               />
             </div>
+            <label className="flex items-start gap-3 text-xs leading-5 text-slate-400">
+              <input
+                type="checkbox"
+                name="consent"
+                required
+                className="mt-1 h-4 w-4 shrink-0 accent-mint"
+              />
+              <span>
+                Concordo em receber contato sobre o AcompanhAí. Li a{' '}
+                <Link href="/privacy" className="font-semibold text-mint hover:text-white">
+                  Política de privacidade
+                </Link>
+                .
+              </span>
+            </label>
+            {error ? (
+              <p
+                role="alert"
+                className="rounded-xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm text-rose-100"
+              >
+                {error}
+              </p>
+            ) : null}
             <button
               type="submit"
-              className="mt-1 inline-flex w-fit items-center justify-center rounded-full bg-mint px-6 py-3.5 text-sm font-bold text-ink shadow-glow transition duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-2 focus-visible:outline-mint focus-visible:outline-offset-4"
+              disabled={pending}
+              className="mt-1 inline-flex w-fit items-center justify-center rounded-full bg-mint px-6 py-3.5 text-sm font-bold text-ink shadow-glow transition duration-200 hover:-translate-y-0.5 hover:bg-white focus-visible:outline-2 focus-visible:outline-mint focus-visible:outline-offset-4 disabled:cursor-wait disabled:opacity-60"
             >
-              Quero testar
+              {pending ? 'Enviando…' : 'Quero testar'}
             </button>
           </form>
         )}
