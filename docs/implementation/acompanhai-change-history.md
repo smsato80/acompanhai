@@ -1,5 +1,14 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Onboarding e checks comerciais publicados
+
+- Publicado o onboarding do profissional em três etapas: cliente, plano e check-in.
+- O progresso do onboarding usa contagens reais da organização e aponta para os formulários do painel.
+- Adicionados smoke tests para páginas comerciais, landing e portal sem convite válido.
+- Revalidados lint, typecheck, quatro testes unitários, dez testes E2E e build.
+- Enviado o commit `1012b1c` para `feature/mvp-app` no GitHub.
+- Publicado o deployment `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b` e verificados os aliases de produção.
+
 ## 2026-08-27 — Primeiro lançamento vendável publicado
 
 - Removido o marcador provisório do nome público; o produto usa somente AcompanhAí.
@@ -12,7 +21,7 @@
 - Adicionado onboarding do profissional em três etapas, com progresso calculado a partir dos dados reais do painel.
 - Adicionados seis smoke tests E2E para páginas comerciais, landing e portal sem convite válido.
 - Validados `lint`, `typecheck`, dez testes E2E, quatro testes unitários e `build`.
-- Publicada a produção no Vercel no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
+- Publicada a primeira produção no Vercel no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`; a atualização posterior está registrada no marco de onboarding acima.
 - Registrada a pendência real: homologar o fluxo com uma conta profissional e um cliente controlado.
 
 ## 2026-08-27 — Documentação consolidada

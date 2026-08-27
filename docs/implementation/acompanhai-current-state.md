@@ -14,9 +14,9 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Último commit da branch: será atualizado após o commit desta entrega.
+- Commit de implementação desta entrega: `1012b1c`.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado: `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
+- Deployment de produção validado: `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
@@ -74,7 +74,7 @@ pnpm test:e2e   PASS — 10 testes
 pnpm build      PASS
 ```
 
-Verificação online: `/`, `/pricing`, `/terms`, `/privacy` e `/portal` retornaram `200`; `/dashboard` sem sessão retornou `307` para login.
+Verificação online no deployment `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b`: `/`, `/pricing`, `/terms`, `/privacy` e `/portal` retornaram `200`; `/dashboard` sem sessão retornou `307` para login. A landing também foi conferida para rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
 
 ## Próxima validação obrigatória
 

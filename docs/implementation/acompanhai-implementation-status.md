@@ -33,4 +33,4 @@
 
 ## Observação sobre a landing
 
-O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`. O app funcional inclui `/login`, `/dashboard` e `/portal`; o painel também apresenta onboarding baseado nos dados reais da organização.
+O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_3HSq5uM4cw6NgNFY2qyuivtQsg2b`. O app funcional inclui `/login`, `/dashboard` e `/portal`; o painel também apresenta onboarding baseado nos dados reais da organização.
