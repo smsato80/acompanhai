@@ -34,10 +34,11 @@ Os valores reais devem ficar apenas em `.env.local` ou no gerenciador de secrets
 - `sellable_client_portal`
 - `grant_portal_invite_access`
 - `harden_portal_rpc_exposure`
+- `interest_leads`
 
 ## Próximo passo Supabase
 
-O próximo marco é executar homologação com conta profissional e cliente controlados, testar revogação/expiração e realizar o teste negativo de isolamento entre duas organizações. Novas alterações devem continuar como migrations versionadas depois de revisão de segurança.
+O próximo marco é executar homologação com conta profissional e cliente controlados, testar revogação/expiração, realizar o teste negativo de isolamento entre duas organizações e atender os leads recebidos em `public.interest_leads`. Novas alterações devem continuar como migrations versionadas depois de revisão de segurança.
 
 ## Observação de operação
 

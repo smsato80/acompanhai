@@ -1,5 +1,15 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Captação real de interesse publicada
+
+- O formulário “Quero testar” deixou de ser apenas local e passou a enviar leads para `/api/leads`.
+- Adicionado consentimento explícito com link para a Política de privacidade.
+- Criada a tabela `public.interest_leads` com RLS forçada, INSERT controlado e sem leitura/edição/exclusão por visitantes.
+- Aplicada a migration `interest_leads` no Supabase `xwbfzyoltsbpbvsnlmfg`.
+- Atualizada a Política de privacidade para explicar o uso dos dados de demonstração.
+- Revalidados 11 testes E2E, quatro testes unitários, lint, typecheck e build.
+- Publicado o commit `93ef425` e o deployment `dpl_63589xiiNa1ocAnKWyHfwRK899Wh`.
+
 ## 2026-08-27 — Atenção do painel tornada acionável
 
 - A carteira passou a buscar os check-ins sem limitar artificialmente aos 20 registros mais recentes.

@@ -14,14 +14,15 @@ O produto continua direcionado primeiro a personal trainers e profissionais bras
 - Repositório oficial: `D:\SatoTech\acompanhai`.
 - Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
 - Branch: `feature/mvp-app`.
-- Commit de implementação desta entrega: `0246e54`.
+- Commit de implementação desta entrega: `93ef425`.
 - Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
-- Deployment de produção validado: `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`.
+- Deployment de produção validado: `dpl_63589xiiNa1ocAnKWyHfwRK899Wh`.
 - Estado do deployment: `READY`.
 
 ## O que existe hoje
 
 - Landing dark premium com público explícito, benefícios em SVG, mockup de plano/check-in/atenção e rodapé SatoTech.
+- Formulário “Quero testar” com consentimento explícito e persistência controlada de leads no Supabase.
 - `/login` com cadastro e entrada por e-mail/senha.
 - Recuperação de senha por e-mail e atualização de senha após confirmação segura.
 - `/dashboard` protegido para o profissional.
@@ -52,7 +53,7 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 | Área | Estado | Evidência ou pendência |
 | --- | --- | --- |
 | Produto e posicionamento | Em validação comercial | Público inicial e preços de referência definidos |
-| Landing | Produção | Rotas públicas verificadas com HTTP 200 |
+| Landing | Produção | Captação de interesse publicada; medir conversão e atendimento |
 | Auth | Implementado e publicado | Homologar cadastro, login e recuperação com conta real |
 | Organizações e RLS | Implementado | Isolamento negativo com duas contas ainda é teste pendente |
 | Clientes | Implementado | CRUD básico e convite manual |
@@ -65,6 +66,7 @@ As migrations de portal, grants e endurecimento das RPCs foram aplicadas no proj
 | Privacidade | Publicada | Revisão jurídica profissional ainda pendente |
 | IA | Fora da primeira versão | Avaliar após validação do fluxo principal |
 | Deploy | Produção | GitHub, Vercel e rotas públicas verificados |
+| Leads | Implementado/publicado | Consultar e atender os registros no Supabase; rate limit ainda pendente |
 
 ## Validação realizada
 
@@ -76,7 +78,7 @@ pnpm test:e2e   PASS — 11 testes
 pnpm build      PASS
 ```
 
-Verificação online no deployment `dpl_F9NTMPjLpPHdnxyCjMX54qWWvxQE`: `/`, `/pricing`, `/terms`, `/privacy`, `/portal`, `/portal/confirm` e `/auth/update-password` retornaram `200`; `/dashboard` sem sessão retornou `307` para login; um token com formato válido foi encaminhado para a confirmação sem resgate no GET. A landing também foi conferida para rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
+Verificação online no deployment `dpl_63589xiiNa1ocAnKWyHfwRK899Wh`: `/`, `/pricing`, `/terms`, `/privacy`, `/portal`, `/portal/confirm` e `/auth/update-password` retornaram `200`; `/dashboard` sem sessão retornou `307` para login; um token com formato válido foi encaminhado para a confirmação sem resgate no GET; `/api/leads` rejeitou GET com `405` e payload inválido com `400`. A landing também foi conferida para consentimento, rodapé SatoTech, público de personal trainers, mockup e ausência de `Pilot1`/`Pilot 1`.
 
 ## Próxima validação obrigatória
 
@@ -86,5 +88,5 @@ Executar o fluxo com uma conta autorizada e dados controlados: criar conta, cada
 
 - Envio de mensagens, ativação comercial e cobrança são manuais.
 - Não há integração automática com WhatsApp/LINE, Stripe, IA ou aplicativo nativo.
-- Rate limit dos endpoints sensíveis e captura persistente de leads ainda não foram implementados.
+- Rate limit dos endpoints sensíveis ainda não foi implementado; leads podem ser consultados no painel do Supabase, mas ainda não há caixa de entrada administrativa no app.
 - A primeira versão não deve receber dados clínicos, fotos, documentos ou informações sensíveis desnecessárias.

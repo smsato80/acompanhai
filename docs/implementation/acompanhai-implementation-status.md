@@ -17,7 +17,7 @@
 | Área            | Estado               | Próximo passo                                             |
 | --------------- | -------------------- | --------------------------------------------------------- |
 | Produto         | Em validação comercial | Entrevistas com profissionais iniciais                  |
-| Landing         | Produção               | Coletar interesse e testar mensagem                       |
+| Landing         | Produção               | Atender leads e medir conversão da mensagem               |
 | Auth            | Implementado/publicado | Homologar signup/login/reset com conta controlada         |
 | Schema Supabase | Implementado/publicado | Teste RLS negativo com duas organizações                  |
 | Organizações    | Implementado            | Evoluir onboarding conforme entrevistas                   |
@@ -30,6 +30,7 @@
 | Privacidade     | Publicada                | Revisão jurídica e contato oficial                        |
 | IA              | Fora da primeira versão  | Reavaliar após validar o fluxo central                    |
 | Deploy          | Produção                 | Verificar cada release e registrar deployment             |
+| Leads           | Implementado/publicado  | Criar rotina de atendimento e avaliar rate limit           |
 
 ## Observação sobre a landing
 
