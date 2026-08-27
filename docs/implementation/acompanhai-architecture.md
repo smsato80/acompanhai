@@ -1,6 +1,6 @@
 # Arquitetura técnica
 
-> Estado vigente: arquitetura recomendada; nenhuma parte está homologada porque o repositório oficial ainda não existe.
+> Estado vigente: arquitetura recomendada para o repositório oficial existente. A primeira implementação está publicada; homologação real e alguns serviços futuros continuam pendentes.
 
 ## Visão geral
 
@@ -28,13 +28,11 @@ Planos, check-ins e painel
 ## Organização por área
 
 ```text
-src/app/          rotas públicas, auth, dashboard, convite e cliente
-src/components/   componentes compartilhados
-src/features/     auth, organizações, clientes, planos, check-ins, billing
-src/lib/          validações, datas, segurança e contratos
-src/server/       serviços server-side e integrações
-supabase/         migrations, seeds e políticas
-tests/            domínio, integração, RLS, E2E e webhooks
+app/               rotas públicas, auth, dashboard, convite e portal do cliente
+components/        componentes compartilhados da landing, dashboard e portal
+lib/               Supabase, tokens, validações e contratos
+supabase/          migrations, RLS e funções controladas
+tests/             domínio, integração, RLS, E2E e webhooks
 ```
 
 ## Regras arquiteturais

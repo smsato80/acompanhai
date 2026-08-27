@@ -1,5 +1,8 @@
 # Status de implementação
 
+**Atualizado em:** 2026-08-27
+**Documento consolidado:** para detalhes e evidências, consulte [acompanhai-current-state.md](./acompanhai-current-state.md) e [acompanhai-primeiro-lancamento-vendavel-2026-08-27.md](./acompanhai-primeiro-lancamento-vendavel-2026-08-27.md).
+
 ## Legenda
 
 - **Não iniciado:** não existe código funcional.
@@ -13,23 +16,21 @@
 
 | Área            | Estado               | Próximo passo                                             |
 | --------------- | -------------------- | --------------------------------------------------------- |
-| Produto         | Especificado         | Entrevistas                                               |
-| Landing         | Produção             | Manter a demonstração publicada e coletar interesse local |
-| Auth            | Implementado localmente | Homologar signup/login com conta de teste                |
-| Schema Supabase | Implementado localmente | Teste RLS negativo com duas organizações                 |
-| Organizações    | Implementado localmente | Conectar onboarding/editoração do espaço                  |
-| Clientes        | Implementado localmente | CRUD completo e testes de isolamento                      |
-| Planos          | Implementado localmente | Evoluir editor de conteúdo e publicação                   |
-| Convites        | Especificado         | Token, hash, expiração e sessão                           |
-| Check-ins       | Implementado localmente | Validar idempotência e jornada do cliente                |
-| Painel          | Implementado localmente | Melhorar estados de erro, loading e detalhe              |
-| Billing         | Especificado         | Stripe test mode                                          |
-| Privacidade     | Requisitos definidos | Revisão jurídica                                          |
-| IA              | Fora do MVP          | Reavaliar após piloto                                     |
-| Deploy          | Produção             | GitHub e Vercel publicados e verificados                  |
+| Produto         | Em validação comercial | Entrevistas com profissionais iniciais                  |
+| Landing         | Produção               | Coletar interesse e testar mensagem                       |
+| Auth            | Implementado/publicado | Homologar signup/login com conta controlada               |
+| Schema Supabase | Implementado/publicado | Teste RLS negativo com duas organizações                  |
+| Organizações    | Implementado            | Evoluir onboarding conforme entrevistas                   |
+| Clientes        | Implementado            | Melhorar edição, arquivamento e isolamento E2E            |
+| Planos          | Implementado básico     | Evoluir editor, ordenação e versionamento                 |
+| Convites        | Implementado             | Homologar link usado, expirado e revogado                 |
+| Check-ins       | Implementado             | Homologar idempotência e jornada do cliente               |
+| Painel          | Implementado/publicado | Melhorar estados e detalhe da atenção                     |
+| Billing         | Manual                   | Validar disposição a pagar antes de Stripe                |
+| Privacidade     | Publicada                | Revisão jurídica e contato oficial                        |
+| IA              | Fora da primeira versão  | Reavaliar após validar o fluxo central                    |
+| Deploy          | Produção                 | Verificar cada release e registrar deployment             |
 
 ## Observação sobre a landing
 
-A landing de demonstração está em produção em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial é `D:\SatoTech\acompanhai`, publicado no [GitHub](https://github.com/smsato80/acompanhai), com `origin/master` em `14745cc`. O projeto Vercel usa o framework `nextjs` e o deployment está `Ready`.
-
-O formulário continua confirmando o interesse localmente, sem persistência. O app funcional está em `/login` e `/dashboard`; a publicação do branch MVP ainda precisa ser executada após a revisão final.
+O site está em [acompanhai.vercel.app](https://acompanhai.vercel.app). O repositório oficial está no [GitHub](https://github.com/smsato80/acompanhai), na branch `feature/mvp-app`, com produção validada no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`. O app funcional inclui `/login`, `/dashboard` e `/portal`.

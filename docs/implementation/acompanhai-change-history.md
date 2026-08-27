@@ -1,5 +1,18 @@
 # Histórico de mudanças
 
+## 2026-08-27 — Primeiro lançamento vendável publicado
+
+- Removido o marcador provisório do nome público; o produto usa somente AcompanhAí.
+- Criado o portal mobile do cliente com plano, check-in e resposta de dificuldade/comentário.
+- Criado fluxo de convite com token de uso único, hash no banco, expiração, revogação e sessão HttpOnly.
+- Aplicadas as migrations `sellable_client_portal`, `grant_portal_invite_access` e `harden_portal_rpc_exposure` no Supabase `xwbfzyoltsbpbvsnlmfg`.
+- Movidas as implementações privilegiadas das RPCs para `private`, com wrappers públicos `SECURITY INVOKER`.
+- Atualizada a landing para deixar claro o público, incluir SVGs, mockup funcional e rodapé SatoTech.
+- Criadas as páginas públicas de planos, termos e privacidade.
+- Validados `lint`, `typecheck`, quatro testes E2E, quatro testes unitários e `build`.
+- Publicada a produção no Vercel no deployment `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
+- Registrada a pendência real: homologar o fluxo com uma conta profissional e um cliente controlado.
+
 ## 2026-08-13 — Landing premium refinada e publicada
 
 - Trocados os indicadores numéricos dos benefícios por ícones SVG inline, mantendo acessibilidade e sem dependências externas.

@@ -1,53 +1,86 @@
 # Estado atual do AcompanhAí
 
-Atualizado em 2026-08-13 após a implementação do primeiro marco funcional do MVP.
+**Atualizado em:** 2026-08-27
+**Fonte principal:** branch `feature/mvp-app` no repositório oficial
 
 ## Resumo executivo
 
-O AcompanhAí possui definição de produto, MVP, arquitetura recomendada, fluxos, riscos, métricas e roadmap. A landing está publicada em produção em [acompanhai.vercel.app](https://acompanhai.vercel.app). O primeiro marco funcional agora inclui login/cadastro, sessão protegida, organizações, clientes, planos e check-ins persistidos no Supabase com RLS.
+O AcompanhAí deixou a fase de landing e possui uma primeira versão web vendável em produção. O profissional pode criar clientes e planos, gerar um convite de uso único, compartilhar o link manualmente e receber um check-in no portal mobile do cliente.
 
-A landing foi refinada para explicar de imediato quem compra a solução: personal trainers brasileiros que atendem no Japão. O mockup visual agora representa o painel de acompanhamento com dados fictícios; não é um relatório real de clientes.
+O produto continua direcionado primeiro a personal trainers e profissionais brasileiros que acompanham clientes no Brasil e no Japão. A interface está em português e os preços de referência estão em ienes.
 
-O material visual produzido nesta fase é estratégico. As páginas Dark Moderno, Premium Sofisticado e Brasil/Japão não são o produto SaaS.
+## Repositório e publicação
+
+- Repositório oficial: `D:\SatoTech\acompanhai`.
+- Worktree de implementação: `D:\SatoTech\acompanhai\.worktrees\mvp-app`.
+- Branch: `feature/mvp-app`.
+- Último commit da branch: `8b30a22`.
+- Site: [acompanhai.vercel.app](https://acompanhai.vercel.app).
+- Deployment de produção validado: `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
+- Estado do deployment: `READY`.
 
 ## O que existe hoje
 
-- Plano mestre de produto e implementação.
-- Documentação modular em `docs/acompanhai/`.
-- Documentação espelhada no padrão do Peso Leve em `docs/implementation/`.
-- Três páginas HTML estratégicas em `outputs/`.
-- Repositório oficial em `D:\SatoTech\acompanhai`, publicado no [GitHub](https://github.com/smsato80/acompanhai), com o MVP implementado no branch `feature/mvp-app`.
-- Landing de demonstração em Next.js publicada em [acompanhai.vercel.app](https://acompanhai.vercel.app), com Vercel configurado como `nextjs` e deployment `Ready`.
-- Formulário de interesse da landing com confirmação local, sem persistência ou chamadas ao Supabase.
-- App MVP em `/login` e `/dashboard`, com Auth por e-mail/senha e operações de cliente, plano e check-in.
-- Migration `mvp_core_schema` aplicada no Supabase; seis tabelas de negócio com RLS habilitada e advisors de segurança sem lints.
-- Hipótese de mercado: profissionais brasileiros no Japão.
-- Hipótese de preço: teste gratuito, ¥980/mês Inicial e ¥1.980/mês Profissional.
+- Landing dark premium com público explícito, benefícios em SVG, mockup de plano/check-in/atenção e rodapé SatoTech.
+- `/login` com cadastro e entrada por e-mail/senha.
+- `/dashboard` protegido para o profissional.
+- Clientes, planos publicados e check-ins persistidos por organização.
+- Convites com token aleatório, hash SHA-256 persistido, validade de sete dias e uso único.
+- Sessão do cliente por cookie HttpOnly, com validade de 24 horas.
+- `/portal` com plano vigente, itens do acompanhamento e formulário de check-in.
+- `/pricing`, `/terms` e `/privacy` publicados.
+- Migrations versionadas em `supabase/migrations/`.
+- Documentação do produto, arquitetura, segurança, testes e processo em `docs/`.
 
-## O que ainda não existe
+## Estado Supabase Free
 
-- Convite seguro de cliente em produção.
-- Teste E2E de cadastro/login com uma conta real.
-- Convite seguro em produção.
-- Stripe, webhook e cobrança real.
-- Piloto com personal trainers.
-- Termos e política de privacidade revisados juridicamente.
-- IA incorporada ao produto.
+Projeto AcompanhAí: `xwbfzyoltsbpbvsnlmfg`, região `ap-northeast-1`, estado `ACTIVE_HEALTHY`.
+
+Na mesma organização:
+
+- `acompanhai`: ativo.
+- `carrosseria`: ativo.
+- `peso-leve`: pausado e preservado.
+
+As migrations de portal, grants e endurecimento das RPCs foram aplicadas no projeto AcompanhAí. O advisor de segurança não aponta RPC pública `SECURITY DEFINER`; resta apenas o aviso informativo sobre `client_sessions` sem policy direta, pois a tabela não é acessível diretamente pelas roles de aplicação.
 
 ## Classificação de implementação
 
-| Área                   | Estado                   | Observação                                                |
-| ---------------------- | ------------------------ | --------------------------------------------------------- |
-| Visão e posicionamento | Documentado              | Ainda depende de entrevistas                              |
-| MVP                    | Implementado localmente | Auth, painel, clientes, planos e check-ins                |
-| Interface              | Produção                 | Landing publicada; painel funcional no branch MVP         |
-| Banco e Auth           | Implementado localmente | Schema aplicado no Supabase; Auth/RLS aguardam homologação  |
-| Convites               | Planejado                | Token de uso único e sessão segura                        |
-| Painel                 | Implementado localmente | `/dashboard` com dados reais da organização autenticada    |
-| Billing                | Planejado                | Stripe em JPY, inicialmente test mode                     |
-| IA                     | Fora do MVP              | Só após validar o fluxo central                           |
-| Deploy                 | Produção                 | GitHub publicado e Vercel `nextjs` com deployment `Ready` |
+| Área | Estado | Evidência ou pendência |
+| --- | --- | --- |
+| Produto e posicionamento | Em validação comercial | Público inicial e preços de referência definidos |
+| Landing | Produção | Rotas públicas verificadas com HTTP 200 |
+| Auth | Implementado e publicado | Ainda falta homologar uma conta real |
+| Organizações e RLS | Implementado | Isolamento negativo com duas contas ainda é teste pendente |
+| Clientes | Implementado | CRUD básico e convite manual |
+| Planos | Implementado básico | Criação publica um item estruturado; editor avançado é próximo passo |
+| Convites | Implementado | Token único, hash, expiração, revogação e sessão |
+| Portal do cliente | Implementado | `/portal` e endpoints de resgate/check-in publicados |
+| Check-ins | Implementado | Status, dificuldade, comentário e snapshot do plano |
+| Painel | Implementado | Carteira, atenção e geração de link |
+| Billing | Manual | Sem Stripe, cobrança automática ou webhook |
+| Privacidade | Publicada | Revisão jurídica profissional ainda pendente |
+| IA | Fora da primeira versão | Avaliar após validação do fluxo principal |
+| Deploy | Produção | GitHub, Vercel e rotas públicas verificados |
 
-## Verificacao pos-publicacao
+## Validação realizada
 
-O app MVP foi publicado em producao em [acompanhai.vercel.app](https://acompanhai.vercel.app). A checagem online retornou HTTP 200 para `/` e `/login`; `/dashboard` redireciona visitantes sem sessao para `/login`. Ainda falta homologar uma conta real e o fluxo de confirmacao de e-mail.
+```text
+pnpm lint       PASS
+pnpm typecheck  PASS
+pnpm test       PASS — 3 arquivos, 4 testes
+pnpm test:e2e   PASS — 4 testes
+pnpm build      PASS
+```
+
+Verificação online: `/`, `/pricing`, `/terms`, `/privacy` e `/portal` retornaram `200`; `/dashboard` sem sessão retornou `307` para login.
+
+## Próxima validação obrigatória
+
+Executar o fluxo com uma conta autorizada e dados controlados: criar conta, cadastrar cliente, criar plano, gerar convite, abrir no celular e enviar check-in. Depois testar revogação/expiração e isolamento entre duas organizações.
+
+## Limites conhecidos
+
+- Envio de mensagens, ativação comercial e cobrança são manuais.
+- Não há integração automática com WhatsApp/LINE, Stripe, IA ou aplicativo nativo.
+- A primeira versão não deve receber dados clínicos, fotos, documentos ou informações sensíveis desnecessárias.

@@ -1,6 +1,6 @@
 # Testes e validação
 
-> Estado atual: unit tests e smoke tests locais passam; os testes de RLS e o cadastro real ainda precisam de homologação com conta de teste.
+> Atualizado em 2026-08-27: lint, typecheck, 4 testes unitários, 4 smoke E2E e build passam; a homologação com conta real e teste negativo de RLS continuam pendentes.
 
 ## Comandos esperados
 
@@ -31,11 +31,11 @@ pnpm build
 
 ### Fundação
 
-Lint, tipos, testes e build verdes; migration aplicada; RLS habilitada; advisors de segurança sem lints. O isolamento negativo com duas contas ainda é gate do piloto.
+Lint, tipos, testes e build verdes; migrations aplicadas; RLS habilitada; advisor sem alertas públicos de RPC `SECURITY DEFINER`. O aviso informativo de `client_sessions` sem policy direta é intencional. O isolamento negativo com duas contas ainda é gate de homologação.
 
-### Piloto
+### Homologação vendável
 
-Fluxo profissional/cliente E2E, convite seguro, backup restaurado, RLS testada e suporte definido.
+Fluxo profissional/cliente E2E com conta autorizada, convite usado/expirado/revogado, RLS testada, suporte e ativação manual definidos.
 
 ### Produção paga
 

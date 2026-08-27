@@ -1,19 +1,19 @@
 # Runbook de deploy
 
-> Produção da landing publicada e verificada; o app MVP está pronto localmente e aguarda homologação antes do deploy.
+> Atualizado em 2026-08-27: landing e primeira versão vendável do app publicadas e verificadas. A homologação real do fluxo profissional/cliente continua pendente.
 
 ## Estado da landing de demonstração
 
 A landing de demonstração está pública em produção: https://acompanhai.vercel.app.
 
-## Registro da publicação de código
+## Registro histórico da publicação de código
 
 - Repositório: https://github.com/smsato80/acompanhai
 - Commit local publicado: `d71cdaf2e317c1a7484caf6cef59a21b5b9c50c2`.
 - Branch: `master`.
 - Caminho de publicação: CLI autenticado a partir de `D:\SatoTech\acompanhai`; não foi usada integração automática do GitHub.
 
-## Registro do redeploy Vercel após a correção do preset
+## Registro histórico do redeploy Vercel após a correção do preset
 
 - Projeto: `acompanhai` (`prj_TLXI5apuCZ4OHMuGm7334VIq5w1z`).
 - Framework preset: `nextjs`, confirmado via API.
@@ -23,28 +23,30 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 - Alias de produção: https://acompanhai.vercel.app
 - A proteção SSO foi desativada para tornar a demonstração pública.
 
-## Estado do app MVP
+## Estado atual do app vendável
 
 - Branch de implementação: `feature/mvp-app`.
-- Rotas locais: `/login`, `/auth/confirm` e `/dashboard`.
+- Rotas publicadas: `/login`, `/auth/confirm`, `/dashboard`, `/portal`, `/pricing`, `/terms` e `/privacy`.
 - Supabase: migration `mvp_core_schema` e endurecimento de `search_path` aplicados no projeto `xwbfzyoltsbpbvsnlmfg`.
-- Vercel: ainda não há publicação do branch MVP.
+- Supabase: migrations `sellable_client_portal`, `grant_portal_invite_access` e `harden_portal_rpc_exposure` aplicadas no projeto `xwbfzyoltsbpbvsnlmfg`.
+- Vercel: deployment de produção do branch MVP `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`, estado `READY`.
 - Variáveis necessárias no deploy: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` e `NEXT_PUBLIC_SITE_URL`.
 
-### Verificação pública
+### Verificação pública atual
 
 - HTTP: `200 OK` em `https://acompanhai.vercel.app`.
 - Título: `AcompanhAí — acompanhamento que continua`.
 - Headline: `Seu cliente não precisa se perder no caminho.`
 - CTA: `Quero testar` visível.
-- Checks locais aprovados: `format:check`, `lint`, `typecheck`, `test`, `test:e2e` (2) e `build`.
+- Checks locais aprovados: `lint`, `typecheck`, `test` (4 unitários), `test:e2e` (4) e `build`.
+- `/pricing`, `/terms`, `/privacy` e `/portal` retornaram `200`; `/dashboard` sem sessão retornou `307` para login.
 
 ## Pré-requisitos
 
 1. Repositório Git oficial criado.
-2. Projeto Supabase de desenvolvimento e homologação.
-3. Migrations aplicadas em homologação.
-4. Vercel configurada com banco separado.
+2. Projeto Supabase AcompanhAí restaurado e ativo no Free.
+3. Migrations do núcleo e do portal aplicadas.
+4. Vercel configurada com as variáveis públicas do projeto.
 5. Stripe Japão em test mode.
 6. Domínio e e-mail autenticados.
 7. Termos, privacidade, contato e cancelamento revisados.
@@ -58,7 +60,7 @@ A landing de demonstração está pública em produção: https://acompanhai.ver
 4. No Vercel, importar o repositório GitHub e conferir as configurações de build do projeto Next.js.
 5. Caso variáveis sejam necessárias em tasks futuras, cadastrá-las exclusivamente nas configurações seguras do Vercel; não copiá-las para commits, documentação ou logs.
 6. Publicar um preview, validar a landing e registrar a URL somente após a confirmação do Vercel.
-7. Publicar em produção apenas com autorização e após as tasks pendentes; registrar então a URL de produção, o commit e o resultado.
+7. A produção já foi publicada com autorização; registrar cada novo deployment, commit e resultado.
 
 ## Validação antes de publicar
 
@@ -82,7 +84,7 @@ Depois, testar login, cliente, plano, convite, check-in, painel, assinatura test
 5. Executar smoke test.
 6. Aplicar migration aprovada.
 7. Publicar produção somente com autorização.
-8. Registrar commit, deployment e resultado.
+8. Registrar commit, deployment e resultado em `acompanhai-current-state.md` e `acompanhai-change-history.md`.
 
 ## Rollback
 

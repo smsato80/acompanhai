@@ -2,9 +2,9 @@
 
 ## Estado atual
 
-O repositório oficial do AcompanhAí ainda não foi criado. Os artefatos de planejamento estão no workspace temporário usado nesta conversa.
+O repositório oficial existe em `D:\SatoTech\acompanhai` e está publicado em https://github.com/smsato80/acompanhai. A implementação do app está na branch `feature/mvp-app`; a produção está em https://acompanhai.vercel.app.
 
-## Artefatos existentes no workspace temporário
+## Artefatos históricos do workspace temporário
 
 - `docs/acompanhai-plano-completo.md`: plano mestre.
 - `docs/acompanhai/`: documentação modular inicial.
@@ -12,21 +12,17 @@ O repositório oficial do AcompanhAí ainda não foi criado. Os artefatos de pla
 - `outputs/acompanha-ai-dark-moderno.html`: variação Dark.
 - `outputs/acompanha-ai-premium-sofisticado.html`: variação Premium.
 
-## Estrutura esperada no repositório oficial
+## Estrutura atual do repositório oficial
 
 ```text
 acompanhai/
-├─ README.md
-├─ docs/
-│  ├─ README.md
-│  ├─ implementation/
-│  ├─ product/
-│  ├─ privacy/
-│  └─ runbooks/
-├─ public/
-├─ src/
-├─ supabase/
-├─ tests/
+├─ app/                 # landing, auth, dashboard e portal
+├─ components/          # landing, dashboard e portal
+├─ docs/implementation/ # estado, histórico, runbooks e evidências
+├─ docs/superpowers/    # specs e planos aprovados
+├─ lib/                 # Supabase, tokens e contratos do portal
+├─ supabase/migrations/ # schema, RLS e funções controladas
+├─ tests/               # unitários e smoke E2E
 ├─ .env.example
 └─ package.json
 ```

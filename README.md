@@ -4,7 +4,7 @@ Fundação do SaaS AcompanhAí: uma experiência simples para profissionais acom
 
 O primeiro recorte atende personal trainers que trabalham com clientes no Brasil e no Japão. A interface usa português brasileiro; referências comerciais futuras serão apresentadas em ienes (¥).
 
-O primeiro app funcional está disponível localmente em `/login` e `/dashboard`. Ele usa Supabase Auth e o schema multi-tenant do MVP para cadastrar clientes, planos e check-ins. A landing pública continua sendo uma demonstração comercial.
+O app funcional está publicado em [acompanhai.vercel.app](https://acompanhai.vercel.app). Ele usa Supabase Auth e o schema multi-tenant para cadastrar clientes, publicar planos, gerar convites seguros e receber check-ins no portal mobile do cliente. A cobrança e o envio de mensagens continuam manuais nesta primeira versão.
 
 ## Pré-requisitos
 
@@ -20,7 +20,7 @@ pnpm dev
 
 Abra `http://localhost:3000`.
 
-Em producao, acesse [acompanhai.vercel.app](https://acompanhai.vercel.app).
+Em produção, acesse [acompanhai.vercel.app](https://acompanhai.vercel.app).
 
 ## Verificações
 
@@ -41,4 +41,4 @@ Copie `.env.example` para `.env.local` e preencha a chave publicável do projeto
 
 ## Documentação
 
-A documentação do produto, arquitetura, dados, segurança, testes e processo está em [`docs/`](./docs/). O registro do primeiro marco funcional está em [`docs/implementation/acompanhai-mvp-app-2026-08-13.md`](./docs/implementation/acompanhai-mvp-app-2026-08-13.md).
+A documentação do produto, arquitetura, dados, segurança, testes e processo está em [`docs/`](./docs/). O estado consolidado está em [`docs/implementation/acompanhai-current-state.md`](./docs/implementation/acompanhai-current-state.md), o histórico em [`docs/implementation/acompanhai-change-history.md`](./docs/implementation/acompanhai-change-history.md) e a evidência do lançamento vendável em [`docs/implementation/acompanhai-primeiro-lancamento-vendavel-2026-08-27.md`](./docs/implementation/acompanhai-primeiro-lancamento-vendavel-2026-08-27.md).
