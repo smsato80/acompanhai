@@ -66,10 +66,26 @@ O build ainda mostra o aviso conhecido do Supabase Realtime sendo incluído no M
 - A criação de plano está simples nesta primeira versão; o próximo incremento pode adicionar editor/reordenação de itens.
 - O fluxo de homologação com uma conta profissional e um cliente real ainda precisa ser executado no ambiente de preview/produção com usuário autorizado.
 
-## Próxima etapa operacional
+## Publicação realizada
 
-1. Commitar a entrega em branch de implementação.
-2. Fazer push para o GitHub.
-3. Publicar preview no Vercel.
-4. Executar homologação real: criar conta, cliente, plano, convite, abrir no celular e enviar check-in.
-5. Promover para produção após confirmar o fluxo com dados reais de teste controlados.
+- Commit: `1857e03 feat: prepare acompanhai for first sellable release`.
+- GitHub: branch `feature/mvp-app` enviada para `https://github.com/smsato80/acompanhai`.
+- Vercel deployment: `dpl_GiVEja6cGUZzbCWosfAUNKbujK9y`.
+- Produção: `https://acompanhai.vercel.app`.
+- Alias do deployment: `https://acompanhai-cnw0s50sx-smsato80s-projects.vercel.app`.
+- Estado do deployment: `READY`.
+
+Verificação HTTP em produção:
+
+- `/` → `200`.
+- `/pricing` → `200`.
+- `/terms` → `200`.
+- `/privacy` → `200`.
+- `/portal` → `200`.
+- `/dashboard` sem sessão → `307` para login.
+- Landing contém o rodapé SatoTech, o público de personal trainers e o mockup de plano/check-in.
+- Landing não contém o nome removido do produto.
+
+## Próximo passo de homologação
+
+Executar com uma conta profissional autorizada: criar cliente, criar plano, gerar convite, abrir o link em celular e enviar o primeiro check-in. Essa é a única validação ainda pendente para confirmar o fluxo completo com dados reais de teste controlados.
